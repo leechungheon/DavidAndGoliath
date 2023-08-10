@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Dungeon1 {
-    public void dunGeon1(My my, Enemy enemy,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
+    public void dunGeon1(My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
 
         int select=0;
         Scanner scan= new Scanner(System.in);
@@ -31,7 +31,7 @@ public class Dungeon1 {
                 //내 카드 출력 마이턴.
                 my.mydeck(select);
                 select = scan.nextInt();
-                my.cardchoice(select, enemy);
+                my.cardchoice(select, enemy,enemy2,enemy3,enemy4);
             } while (select != 0&&enemy.hp>0);
             //적 공격후 상황 출력
             if(enemy.hp>0) {//적이 살앗으면 나에게 공격
@@ -78,7 +78,9 @@ public class Dungeon1 {
                         "                                                                      \n");
             }
         }while(my.hp>0&&enemy.hp>0);//스테이지 1반복 둘 다 살았다면,
-        if(win==1){
+
+
+        if(win==1){//적 4마리 출현
             //스테이지 1-2
         }else{
             //비워놓기

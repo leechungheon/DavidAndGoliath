@@ -1,7 +1,10 @@
 
 public class Enemy {
-    int fhp;
     int hp;
+    int fhp;
+
+
+
     public int enemypower() {
         int atk = (int) (Math.random() * 11) + 15;
         return atk;

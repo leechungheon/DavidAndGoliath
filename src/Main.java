@@ -8,6 +8,9 @@ public class Main {
         Artifact_list artifactlist=new Artifact_list();
         My my=new My();
         Enemy enemy=new Enemy();
+        Enemy enemy2=new Enemy();
+        Enemy enemy3=new Enemy();
+        Enemy enemy4=new Enemy();
         Dungeon1 dungeon1=new Dungeon1();
         Reward_1 reward_1=new Reward_1();
         Shop shop=new Shop();
@@ -35,7 +38,7 @@ public class Main {
                 if (select == 1) {
                     tutorial.tuTorial();
                 } else {
-                    dungeon1.dunGeon1(my,enemy,reward_1,cardlist,shop);
+                    dungeon1.dunGeon1(my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
                     //던전2
                     //던전3
 
