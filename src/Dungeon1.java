@@ -19,14 +19,15 @@ public class Dungeon1 {
             int suffle=0;
             my.energy=3;
             my.defend=0;
+            System.out.println("==============================================================================");
+            System.out.println("1-1 STAGE\n\n\n\n");
             do {
-                System.out.println("1-1\n\n\n\n");
                 System.out.printf("ጿ                                                                       ▲(← %d)\n", enemy.atk_save);
                 my.myhp();
                 System.out.print("\t\t\t\t\t\t\t\t\t");
                 enemy.enemyhp();
                 System.out.println("\n==============================================================================");
-                System.out.printf("\n【에너지:%d/3】\n", my.energy);
+                System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d/3】\n\n", my.energy);
                 //내 카드 출력 마이턴.
                 my.mydeck(select);
                 select = scan.nextInt();

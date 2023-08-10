@@ -51,7 +51,6 @@ int gold1, gold2, gold3;
                         break;
                     }
 
-                break;
             }else {//카드1과 같다면
 
             }
@@ -80,7 +79,6 @@ int gold1, gold2, gold3;
                         break;
                     }
 
-                break;
             }else {//카드1과 같다면
 
             }

@@ -28,13 +28,13 @@ public class Shop {
             System.out.printf("\n" +
                     "\t\t\t\t\t\t╔═╗╦ ╦╔═╗╔═╗\n" +
                     "\t\t\t\t\t\t╚═╗╠═╣║ ║╠═╝\n" +
-                    "\t\t\t\t\t\t╚═╝╩ ╩╚═╝╩  \t\t\t\t남은 골드:%d\n", my.gold);
+                    "\t\t\t\t\t\t╚═╝╩ ╩╚═╝╩  \n남은 골드:%d\t\t\t\t\t\t\t\t\t\t\t남은 체력:(%d/%d)\n", my.gold, my.fhp,my.hp);
             System.out.println("*********************************************************************");
             reward1.reward(0, my, card_list);//50~70 원 측정
             System.out.println("4.『HP 10회복』\n▶ 30 골드\n");
             System.out.println("5.『카드 제거 서비스』\n▶ 70 골드");
             System.out.println();
-            System.out.println("Press 0 to back...");
+            System.out.println("0을 눌러 뒤로가기");
             System.out.println("*********************************************************************");
             Scanner scan = new Scanner(System.in);
             select1 = scan.nextInt();
@@ -59,9 +59,14 @@ public class Shop {
                 for(int i=0; i<100; i++){
                     my.card_destription(my.mycard_y[i]);
                 }
+                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
                 int select3;
                 select3= scan.nextInt();
-                my.mycard_minus(select3,reward1);
+                if(select3==0) {
+                    //뒤로가기
+                }else {
+                    my.mycard_minus(select3, reward1);
+                }
                 //돈이 충분하지않다면
             } else if (select1 == 0) {
                 break;
