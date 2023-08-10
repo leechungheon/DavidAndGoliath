@@ -38,7 +38,8 @@ public class Main {
                 if (select == 1) {
                     tutorial.tuTorial();
                 } else {
-                    dungeon1.dunGeon1(my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
+                    int x=1;//enemy number
+                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
                     //던전2
                     //던전3
 

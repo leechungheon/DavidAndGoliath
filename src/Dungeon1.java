@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Dungeon1 {
-    public void dunGeon1(My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
+    public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
 
         int select=0;
         Scanner scan= new Scanner(System.in);

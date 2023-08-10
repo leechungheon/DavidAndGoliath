@@ -5,12 +5,12 @@ public class Enemy {
 
 
 
-    public int enemypower() {
+    public int enemypower() {//적 다음턴 공격력 랜덤 출력
         int atk = (int) (Math.random() * 11) + 15;
         return atk;
     }
     int atk_save = enemypower();
-    public void enemyhp(){
+    public void enemyhp(){//적 체력바 출력
         for(int i=0; i<15-15*hp/fhp; i++){
             System.out.print('□');
         }
@@ -19,9 +19,9 @@ public class Enemy {
         }
         System.out.printf("(%d/%d)",hp,fhp);
     }
-    public void enemyatk(My my){
+    public void enemyatk(My my){//적 공격 성공실패 출력
         if(atk_save<my.defend){
-            System.out.println("『방어성공』");
+            System.out.println("『적의 공격에 방어를 성공했습니다.』");
         }else{
             my.hp-=atk_save-my.defend;
         }
