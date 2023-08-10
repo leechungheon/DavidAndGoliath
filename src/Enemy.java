@@ -2,11 +2,12 @@
 public class Enemy {
     int hp;
     int fhp;
+    int atk;
 
 
 
     public int enemypower() {//적 다음턴 공격력 랜덤 출력
-        int atk = (int) (Math.random() * 11) + 15;
+         atk = (int) (Math.random() * 11) + 15;
         return atk;
     }
     int atk_save = enemypower();

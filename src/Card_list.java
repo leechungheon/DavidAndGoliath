@@ -1,5 +1,7 @@
 public class Card_list {
     int[] cardlist=new int[100];
+    //취약 -부여하면 적에게 30% 데미지가 들어간다.
+    //약화 -부여하면 적의 공격이 30% 약해진다.
     public void all_cardlist() {
         cardlist[1]=1;
         //[공격1] 타격1 .피해를 10준다

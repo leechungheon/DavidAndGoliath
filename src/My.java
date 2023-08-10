@@ -143,6 +143,14 @@ public class My {
                     int choice;
                     int inithp;
                     int intimyhp;
+                    int atk;
+                    if(power>0){
+                        atk=13;
+                        power--;
+                    }else{
+                        atk=10;
+                    }
+
                     if(x>2) {//적이 둘 이상일때
                         while(true) {
                             System.out.println("몇 번 적을 공격하시겠습니까?");
@@ -150,30 +158,31 @@ public class My {
                             choice = scan.nextInt();
 
 
+
                             if (choice == 1) {
                                 inithp = enemy.hp;
-                                enemy.hp -= 10;
+                                enemy.hp -= atk;
                                 energy--;
                                 System.out.println("==============================================================================");
                                 System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
                                 break;
                             } else if (choice == 2) {
                                 inithp = enemy2.hp;
-                                enemy2.hp -= 10;
+                                enemy2.hp -= atk;
                                 energy--;
                                 System.out.println("==============================================================================");
                                 System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
                                 break;
                             } else if (choice == 3 && x >= 3) {
                                 inithp = enemy3.hp;
-                                enemy3.hp -= 10;
+                                enemy3.hp -= atk;
                                 energy--;
                                 System.out.println("==============================================================================");
                                 System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
                                 break;
                             } else if (choice == 4 && x >= 4) {
                                 inithp = enemy4.hp;
-                                enemy4.hp -= 10;
+                                enemy4.hp -= atk;
                                 energy--;
                                 System.out.println("==============================================================================");
                                 System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
@@ -185,7 +194,7 @@ public class My {
 
                     }else{//적이 하나라면
                         inithp = enemy.hp;
-                        enemy.hp -= 10;
+                        enemy.hp -= atk;
                         energy--;
                         System.out.println("==============================================================================");
                         System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n",inithp - enemy.hp);
@@ -240,10 +249,17 @@ public class My {
                     }
                     int inithp;
                     inithp=enemy.hp;
-                    enemy.hp -= 8;
-                    enemy2.hp -= 8;
-                    enemy3.hp -= 8;
-                    enemy4.hp -= 8;
+                    int atk;
+                    if(power>0){
+                        atk=11;
+                        power--;
+                    }else{
+                        atk=8;
+                    }
+                    enemy.hp -= atk;
+                    enemy2.hp -= atk;
+                    enemy3.hp -= atk;
+                    enemy4.hp -= atk;
                     energy--;
                     System.out.println("==============================================================================");
                     System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n", inithp-enemy.hp);
@@ -304,62 +320,85 @@ public class My {
                     int choice;
                     int inithp;
                     int intimyhp;
-                    do{
-                    System.out.println("몇 번 적을 공격하시겠습니까?");
-                    Scanner scan=new Scanner(System.in);
-                    choice=scan.nextInt();
-                    if(choice==1){
-                         inithp=enemy.hp;
-                        enemy.hp-=15;
-                        if(defend>=2){
-                            defend-=2;
-                        }else {
-                            defend = 0;
-                            hp -= defend - 2;
-                        }
-                        energy--;
-                        System.out.println("==============================================================================");
-                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend-2,choice,inithp-enemy.hp);
-                    }else if(choice==2){
-                         inithp=enemy2.hp;
-                        energy--;
-                        System.out.println("==============================================================================");
-                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend-2,choice,inithp-enemy2.hp);
-                        enemy2.hp-=15;
-                        if(defend>=2){
-                            defend-=2;
-                        }else {
-                            defend = 0;
-                            hp -= defend - 2;
-                        }
-                    }else if(choice==3){
-                         inithp=enemy3.hp;
-                        enemy3.hp-=15;
-                        if(defend>=2){
-                            defend-=2;
-                        }else {
-                            defend = 0;
-                            hp -= defend - 2;
-                        }
-                        energy--;
-                        System.out.println("==============================================================================");
-                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend-2,choice,inithp-enemy3.hp);
-                    }else if(choice==4){
-                         inithp=enemy4.hp;
-                        enemy4.hp-=15;
-                        if(defend>=2){
-                            defend-=2;
-                        }else {
-                            defend = 0;
-                            hp -= defend - 2;
-                        }
-                        energy--;
-                        System.out.println("==============================================================================");
-                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend-2,choice,inithp-enemy4.hp);
+                    int atk;
+                    if(power>0){
+                        atk=20;
+                        power--;
                     }else{
-                        System.out.println("잘못 입력된 값입니다.");
+                        atk=15;
                     }
-                    }while(choice!=1&&choice!=2&&choice!=3&&choice!=4);
+
+                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                    if(x>2) {//적이 둘 이상일때
+                      while(true) {
+                          Scanner scan = new Scanner(System.in);
+                          choice = scan.nextInt();
+                          if (choice == 1) {
+                              inithp = enemy.hp;
+                              enemy.hp -= atk;
+                              if (defend >= 2) {
+                                  defend -= 2;
+                              } else {
+                                  defend = 0;
+                                  hp -= defend - 2;
+                              }
+                              energy--;
+                              System.out.println("==============================================================================");
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy.hp);
+                          } else if (choice == 2) {
+                              inithp = enemy2.hp;
+                              energy--;
+                              System.out.println("==============================================================================");
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy2.hp);
+                              enemy2.hp -= atk;
+                              if (defend >= 2) {
+                                  defend -= 2;
+                              } else {
+                                  defend = 0;
+                                  hp -= defend - 2;
+                              }
+                          } else if (choice == 3&&x>=3) {
+                              inithp = enemy3.hp;
+                              enemy3.hp -= atk;
+                              if (defend >= 2) {
+                                  defend -= 2;
+                              } else {
+                                  defend = 0;
+                                  hp -= defend - 2;
+                              }
+                              energy--;
+                              System.out.println("==============================================================================");
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy3.hp);
+                          } else if (choice == 4&&x>=4) {
+                              inithp = enemy4.hp;
+                              enemy4.hp -= atk;
+                              if (defend >= 2) {
+                                  defend -= 2;
+                              } else {
+                                  defend = 0;
+                                  hp -= defend - 2;
+                              }
+                              energy--;
+                              System.out.println("==============================================================================");
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy4.hp);
+                          } else {
+                              System.out.println("존재하지 않는 적입니다.");
+                          }
+                      }
+                    }else{
+                        inithp = enemy.hp;
+                        enemy.hp -= atk;
+                        if (defend >= 2) {
+                            defend -= 2;
+                        } else {
+                            defend = 0;
+                            hp -= defend - 2;
+                        }
+                        energy--;
+                        System.out.println("==============================================================================");
+                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, inithp - enemy.hp);
+
+                    }
 
                 }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
@@ -368,6 +407,173 @@ public class My {
                     System.out.println("존재하지 않는 카드");
                     System.out.println("==============================================================================\n\n\n\n");
                 }
+                break;
+            case 6://몸통박치기
+                if(energy>=1&&mydeck[1]==1||energy>=1&&mydeck[2]==1||energy>=1&&mydeck[3]==1||energy>=1&&mydeck[4]==1||energy>=1&&mydeck[0]==1) {
+                    //에너지가 충분하고, 내가 패에 카드를 가지고 있다면 실행
+                    if(mydeck[1]==1){
+                        mydeck[1]=0;
+                    }else if(mydeck[2]==1){
+                        mydeck[2]=0;
+                    }else if(mydeck[3]==1){
+                        mydeck[3]=0;
+                    }else if(mydeck[4]==1){
+                        mydeck[4]=0;
+                    }else{
+                        mydeck[0]=0;
+                    }
+                    ///////반복시작
+                    int choice;
+                    int inithp;
+                    int intimyhp;
+                    int atk;
+                    if(power>0){
+                        atk=(int)(defend*1.3);
+                        power--;
+                    }else{
+                        atk=defend;
+                    }
+
+                    if(x>2) {//적이 둘 이상일때
+                        while(true) {
+                            System.out.println("몇 번 적을 공격하시겠습니까?");
+                            Scanner scan = new Scanner(System.in);
+                            choice = scan.nextInt();
+
+
+                            if (choice == 1) {
+                                inithp = enemy.hp;
+                                enemy.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
+                                break;
+                            } else if (choice == 2) {
+                                inithp = enemy2.hp;
+                                enemy2.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
+                                break;
+                            } else if (choice == 3 && x >= 3) {
+                                inithp = enemy3.hp;
+                                enemy3.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
+                                break;
+                            } else if (choice == 4 && x >= 4) {
+                                inithp = enemy4.hp;
+                                enemy4.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
+                                break;
+                            } else {
+                                System.out.println("존재하지 않는 적입니다.");
+                            }
+                        }
+
+                    }else{//적이 하나라면
+                        inithp = enemy.hp;
+                        enemy.hp -= atk;
+                        energy--;
+                        System.out.println("==============================================================================");
+                        System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n",inithp - enemy.hp);
+                    }
+                    /////
+                }else if(mydeck[1]==1||mydeck[2]==1||mydeck[3]==1||mydeck[4]==1||mydeck[0]==1){//패에 카드를 가지고 있지만, 코스가 부족할 때
+                    System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
+                    System.out.println("==============================================================================\n\n\n\n");
+                }else{
+                    System.out.println("존재하지 않는 카드");
+                    System.out.println("==============================================================================\n\n\n\n");
+                }
+
+                break;
+            case 7://어퍼컷
+                if(energy>=1&&mydeck[1]==1||energy>=1&&mydeck[2]==1||energy>=1&&mydeck[3]==1||energy>=1&&mydeck[4]==1||energy>=1&&mydeck[0]==1) {
+                    //에너지가 충분하고, 내가 패에 카드를 가지고 있다면 실행
+                    if(mydeck[1]==1){
+                        mydeck[1]=0;
+                    }else if(mydeck[2]==1){
+                        mydeck[2]=0;
+                    }else if(mydeck[3]==1){
+                        mydeck[3]=0;
+                    }else if(mydeck[4]==1){
+                        mydeck[4]=0;
+                    }else{
+                        mydeck[0]=0;
+                    }
+                    ///////반복시작
+                    int choice;
+                    int inithp;
+                    int intimyhp;
+                    int atk;
+                    if(power>0){
+                        atk=16;
+                        power--;
+                    }else{
+                        atk=12;
+                    }
+
+                    if(x>2) {//적이 둘 이상일때
+                        while(true) {
+                            System.out.println("몇 번 적을 공격하시겠습니까?");
+                            Scanner scan = new Scanner(System.in);
+                            choice = scan.nextInt();
+
+
+                            if (choice == 1) {
+                                inithp = enemy.hp;
+                                enemy.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
+                                break;
+                            } else if (choice == 2) {
+                                inithp = enemy2.hp;
+                                enemy2.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
+                                break;
+                            } else if (choice == 3 && x >= 3) {
+                                inithp = enemy3.hp;
+                                enemy3.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
+                                break;
+                            } else if (choice == 4 && x >= 4) {
+                                inithp = enemy4.hp;
+                                enemy4.hp -= atk;
+                                energy--;
+                                System.out.println("==============================================================================");
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
+                                break;
+                            } else {
+                                System.out.println("존재하지 않는 적입니다.");
+                            }
+                        }
+
+                    }else{//적이 하나라면
+                        inithp = enemy.hp;
+                        enemy.hp -= atk;
+                        energy--;
+                        System.out.println("==============================================================================");
+                        System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n",inithp - enemy.hp);
+                    }
+                    /////
+                }else if(mydeck[1]==1||mydeck[2]==1||mydeck[3]==1||mydeck[4]==1||mydeck[0]==1){//패에 카드를 가지고 있지만, 코스가 부족할 때
+                    System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
+                    System.out.println("==============================================================================\n\n\n\n");
+                }else{
+                    System.out.println("존재하지 않는 카드");
+                    System.out.println("==============================================================================\n\n\n\n");
+                }
+
+                break;
             default:
                 System.out.println("존재하지 않는 카드");
                 System.out.println("==============================================================================\n\n\n\n");
