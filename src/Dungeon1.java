@@ -8,7 +8,6 @@ public class Dungeon1 {
 
         my.fhp=80;
         my.hp=80;
-        my.defend=0;
         enemy.fhp=40;
         enemy.hp=40;
         int win=0;
@@ -16,7 +15,6 @@ public class Dungeon1 {
 
         //출력
         do {
-            int suffle=0;
             my.energy=3;
             my.defend=0;
             System.out.println("==============================================================================");

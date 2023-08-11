@@ -3,6 +3,7 @@ public class Enemy {
     int hp;
     int fhp;
     int atk;
+    int weak;
 
 
 
@@ -21,10 +22,19 @@ public class Enemy {
         System.out.printf("(%d/%d)",hp,fhp);
     }
     public void enemyatk(My my){//적 공격 성공실패 출력
-        if(atk_save<my.defend){
-            System.out.println("『적의 공격에 방어를 성공했습니다.』");
+        if(weak>0) {
+            if (atk_save*0.6 < my.defend) {
+                System.out.println("『적의 공격에 방어를 성공했습니다.』");
+            } else {
+                my.hp -= (int)(atk_save*0.6) - my.defend;
+            }
+            weak--;
         }else{
-            my.hp-=atk_save-my.defend;
+            if (atk_save < my.defend) {
+                System.out.println("『적의 공격에 방어를 성공했습니다.』");
+            } else {
+                my.hp -= atk_save - my.defend;
+            }
         }
     }
 
