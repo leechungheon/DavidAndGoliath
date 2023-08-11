@@ -312,6 +312,7 @@ public class My {
                     System.out.println("존재하지 않는 카드");
                     System.out.println("==============================================================================\n\n\n\n");
                 }
+                break;
             case 5://혈류
                 if(energy>=1&&mydeck[1]==5||energy>=1&&mydeck[2]==5||energy>=1&&mydeck[3]==5||energy>=1&&mydeck[4]==5||energy>=1&&mydeck[0]==5) {//카드 사용후 제거
                     if(mydeck[1]==5){
@@ -353,6 +354,7 @@ public class My {
                               energy--;
                               System.out.println("==============================================================================");
                               System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy.hp);
+                              break;
                           } else if (choice == 2) {
                               inithp = enemy2.hp;
                               energy--;
@@ -365,6 +367,7 @@ public class My {
                                   defend = 0;
                                   hp -= defend - 2;
                               }
+                              break;
                           } else if (choice == 3&&x>=3) {
                               inithp = enemy3.hp;
                               enemy3.hp -= atk;
@@ -377,6 +380,7 @@ public class My {
                               energy--;
                               System.out.println("==============================================================================");
                               System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy3.hp);
+                              break;
                           } else if (choice == 4&&x>=4) {
                               inithp = enemy4.hp;
                               enemy4.hp -= atk;
@@ -389,6 +393,7 @@ public class My {
                               energy--;
                               System.out.println("==============================================================================");
                               System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy4.hp);
+                              break;
                           } else {
                               System.out.println("존재하지 않는 적입니다.");
                           }
