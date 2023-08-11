@@ -7,7 +7,7 @@ int gold1, gold2, gold3;
         card3 = 0;
 
         if (x == 1) {
-            System.out.printf("\t\t\t  ●%d골드 획득●\n\n", (int) (Math.random() * 11) + 10);
+            System.out.printf("\t\t\t  ●%d골드 획득●\n\n", (int) (Math.random() * 31) + 40);//40~70골드
             my.gold += (int) (Math.random() * 11) + 10;//10이상 20이하 골드 획득
             System.out.println("\t\t\t●카드를 선택하세요●\n");
         }

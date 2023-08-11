@@ -8,8 +8,16 @@ public class Dungeon1 {
 
         my.fhp=80;
         my.hp=80;
-        enemy.fhp=40;
-        enemy.hp=40;
+        if (x == 1) {
+            enemy.fhp=40;
+            enemy.hp=40;
+            my.mycard();//test
+        }else if(x==2) {
+            enemy.fhp=30;
+            enemy.hp=30;
+            enemy2.fhp = 70;
+            enemy2.hp = 70;
+        }
         int win=0;
         //반복 시작 구간 내가 죽으면 게임오버, 적이 죽으면 다음으로
 
@@ -20,25 +28,72 @@ public class Dungeon1 {
             System.out.println("==============================================================================");
             System.out.println("1-1 STAGE\n\n\n\n");
             do {
-                System.out.printf("ጿ                                                                       ▲(← %d)\n", enemy.atk_save);
+                System.out.printf("ጿ                                                                       ▲(atk: %d) ", enemy.atk_save);
+                if(x==2){
+                    System.out.printf(" \t\t▲(atk: %d)", enemy2.atk_save);
+                }else if(x==3){
+                    System.out.printf(" ▲(atk: %d)", enemy2.atk_save);
+                    System.out.printf(" ▲(atk: %d)", enemy3.atk_save);
+                }
+                else if(x==4){
+                    System.out.printf(" ▲(atk: %d)", enemy2.atk_save);
+                    System.out.printf(" ▲(atk: %d)", enemy3.atk_save);
+                    System.out.printf(" ▲(atk: %d)", enemy4.atk_save);
+                }
+                System.out.println();
                 my.myhp();
                 System.out.print("\t\t\t\t\t\t\t\t\t");
                 enemy.enemyhp();
+                if(x==2){
+                    enemy2.enemyhp();
+                }else if(x==3){
+                    enemy2.enemyhp();
+                    enemy3.enemyhp();
+                }
+                else if(x==4){
+                    enemy2.enemyhp();
+                    enemy3.enemyhp();
+                    enemy4.enemyhp();
+                }
                 System.out.println("\n==============================================================================");
                 System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d/3】\n\n", my.energy);
                 //내 카드 출력 마이턴.
                 my.mydeck(select);
+                //test
+                for(int i=0; i<100; i++) {
+                    System.out.print(my.mycard[i]);
+                }
+                System.out.println();
+                for(int i=0; i<100; i++) {
+                    System.out.print(my.mycard_y[i]);
+                }
+                for(int i=0; i<6; i++){
+                    System.out.print(my.mydeck[i]);
+                }
                 select = scan.nextInt();
-                my.cardchoice(select, enemy,enemy2,enemy3,enemy4);
+                my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4);
             } while (select != 0&&enemy.hp>0);
             //적 공격후 상황 출력
-            if(enemy.hp>0) {//적이 살앗으면 나에게 공격
-                int savehp=my.hp;
-                enemy.enemyatk(my);
-                System.out.printf("\n\t\t\t\t\t\t『적에게 %d 데미지를 받았습니다.』\n\n\n",savehp-my.hp);
-                enemy.atk_save=enemy.enemypower();
-                // 반복 종료 구간
-            }else{//적이 죽엇으면
+            int savehp=my.hp;
+            if(enemy.hp>0||enemy2.hp>0||enemy3.hp>0||enemy4.hp>0) {
+                if (enemy.hp > 0) {//적이 살앗으면 나에게 공격
+                    enemy.enemyatk(my);
+                    enemy.atk_save = enemy.enemypower();
+                }
+                if (enemy2.hp > 0) {
+                    enemy2.enemyatk(my);
+                    enemy2.atk_save = enemy2.enemypower();
+                }
+                if (enemy3.hp > 0) {
+                    enemy3.enemyatk(my);
+                    enemy3.atk_save = enemy3.enemypower();
+                }
+                if (enemy4.hp > 0) {
+                    enemy4.enemyatk(my);
+                    enemy4.atk_save = enemy4.enemypower();
+                }
+                System.out.printf("\n\t\t\t\t\t\t『적에게 %d 데미지를 받았습니다.』\n\n\n", savehp - my.hp);
+            } else{//적이 죽엇으면
                 System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                         " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                         "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
@@ -49,15 +104,20 @@ public class Dungeon1 {
                         "                                              \n");
                 //보상얻기
                 reward1.reward(1, my,card_list);//골드받고 카드 3중 1 선택// 정수값 1 받으면 골드 및 선택 문구 출력
-                select = scan.nextInt();
-                if(select==1){
-                    my.mycard_plus(1,reward1);
-
-                }else if(select==2){
-                    my.mycard_plus(2,reward1);
-
-                }else{
-                    my.mycard_plus(3,reward1);
+                while(true) {
+                    select = scan.nextInt();
+                    if (select == 1) {
+                        my.mycard_plus(1, reward1);
+                        break;
+                    } else if (select == 2) {
+                        my.mycard_plus(2, reward1);
+                        break;
+                    } else if (select == 3) {
+                        my.mycard_plus(3, reward1);
+                        break;
+                    } else {
+                        System.out.println("잘못 입력된 값입니다.");
+                    }
                 }
                 //상점으로 갈래? 싸우러갈래?
                 shop.shop_choice(reward1, my, card_list);
@@ -75,7 +135,7 @@ public class Dungeon1 {
                         " ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝\n" +
                         "                                                                      \n");
             }
-        }while(my.hp>0&&enemy.hp>0);//스테이지 1반복 둘 다 살았다면,
+        }while(my.hp>0&&enemy.hp>0||my.hp>0&&enemy2.hp>0||my.hp>0&&enemy3.hp>0||my.hp>0&&enemy4.hp>0);//스테이지 1반복 둘 다 살았다면,
 
 
         if(win==1){//적 4마리 출현

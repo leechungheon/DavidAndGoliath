@@ -40,6 +40,8 @@ public class Main {
                 } else {
                     int x=1;//enemy number
                     dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
+                    x=2;
+                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
                     //던전2
                     //던전3
 
