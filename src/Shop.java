@@ -27,25 +27,80 @@ public class Shop {
     }
     public void shop_card(int x, My my){
         if(x>0){
+            System.out.print("1.");
             my.card_destription(card1);
+            System.out.print("2.");
             System.out.printf("▶%d 골드\n\n", gold1);
             my.card_destription(card2);
             System.out.printf("▶%d 골드\n\n", gold2);
+            System.out.print("3.");
             my.card_destription(card3);
             System.out.printf("▶%d 골드\n\n", gold3);
         }else{
-            card1=(int) (Math.random() * 7) + 4;
-            my.card_destription(card1);
+            System.out.print("1.");
+            while (true) {
+                card1 = (int) (Math.random() * 7) + 4;
+                int count = 0;
+                int i;
+                for (i = 0; i < 100; i++) {
+                    if (my.mycard[i] != card1) {
+                        count++;
+                    }
+                }
+                if (count == 100) {
+                    my.card_destription(card1);
+                    break;
+                }
+            }
             gold1 = (int) (Math.random() * 21) + 50;
             System.out.printf("▶%d 골드\n\n", gold1);
 
-            card2=(int) (Math.random() * 7) + 4;
-            my.card_destription(card2);
+            System.out.print("2.");
+            while (true) {
+                card2 = (int) (Math.random() * 7) + 4;
+                if (card2 != card1) {
+
+                    int count = 0;
+                    int i;
+                    for (i = 0; i < 100; i++) {//중복체크
+                        if (my.mycard[i] != card2) {
+                            count++;
+                        }
+                    }
+                    if (count == 100) {//중복X
+                        my.card_destription(card2);
+                        break;
+                    }
+
+                } else {//카드1과 같다면
+
+                }
+            }
             gold2 = (int) (Math.random() * 21) + 50;
             System.out.printf("▶%d 골드\n\n", gold2);
 
-            card3=(int) (Math.random() * 7) + 4;
-            my.card_destription(card3);
+            System.out.print("3.");
+            while (true) {
+                card3 = (int) (Math.random() * 7) + 4;
+                if (card3 != card1 && card3 != card2) {
+
+                    int count = 0;
+                    int i;
+                    for (i = 0; i < 100; i++) {//중복체크
+                        if (my.mycard[i] != card3) {
+                            count++;//무한반복
+                        }
+                    }
+                    if (count == 100) {//중복X
+                        my.card_destription(card3);
+                        break;
+                    }
+
+                } else {//카드1과 같다면
+
+                }
+
+            }
             gold3 = (int) (Math.random() * 21) + 50;
             System.out.printf("▶%d 골드\n\n", gold3);
         }
@@ -70,17 +125,17 @@ public class Shop {
             Scanner scan = new Scanner(System.in);
             select1 = scan.nextInt();
             if (select1 == 1) {
-                my.mycard_plus(reward1.card1, reward1);
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",reward1.card1);
+                my.mycard[card1]=card1;
+                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card1);
 
 
             } else if (select1 == 2) {
-                my.mycard_plus(reward1.card2, reward1);
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",reward1.card2);
+                my.mycard[card2]=card2;
+                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card2);
 
             } else if (select1 == 3) {
-                my.mycard_plus(reward1.card3, reward1);
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",reward1.card3);
+                my.mycard[card3]=card3;
+                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card3);
 
             } else if (select1 == 4) {
                 if(my.gold>=30) {
