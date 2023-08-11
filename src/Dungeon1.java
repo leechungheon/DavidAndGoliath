@@ -18,42 +18,69 @@ public class Dungeon1 {
             enemy2.fhp = 70;
             enemy2.hp = 70;
         }
-        int win=0;
-        //반복 시작 구간 내가 죽으면 게임오버, 적이 죽으면 다음으로
 
         //출력
         do {
             my.energy=3;
             my.defend=0;
             System.out.println("==============================================================================");
-            System.out.println("1-1 STAGE\n\n\n\n");
             do {
-                System.out.printf("ጿ                                                                       ▲(atk: %d) ", enemy.atk_save);
+                System.out.printf("ጿ                                                                       ");
+                if(x==1&&enemy.hp>0){
+                System.out.printf("▲(atk: %d) ", enemy.atk_save);}
                 if(x==2){
-                    System.out.printf(" \t\t▲(atk: %d)", enemy2.atk_save);
+                    if(enemy.hp>0){
+                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                    if(enemy.hp>0){
+                    System.out.printf(" \t\t▲(atk: %d)", enemy2.atk_save);}
                 }else if(x==3){
-                    System.out.printf(" ▲(atk: %d)", enemy2.atk_save);
-                    System.out.printf(" ▲(atk: %d)", enemy3.atk_save);
+                    if(enemy.hp>0){
+                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                    if(enemy2.hp>0){
+                        System.out.printf("▲(atk: %d) ", enemy2.atk_save);}
+                    if(enemy3.hp>0){
+                        System.out.printf(" \t\t▲(atk: %d)", enemy3.atk_save);}
                 }
                 else if(x==4){
-                    System.out.printf(" ▲(atk: %d)", enemy2.atk_save);
-                    System.out.printf(" ▲(atk: %d)", enemy3.atk_save);
-                    System.out.printf(" ▲(atk: %d)", enemy4.atk_save);
+                    if(enemy.hp>0){
+                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                    if(enemy2.hp>0){
+                        System.out.printf("▲(atk: %d) ", enemy2.atk_save);}
+                    if(enemy3.hp>0){
+                        System.out.printf(" \t\t▲(atk: %d)", enemy3.atk_save);}
+                    if(enemy4.hp>0){
+                        System.out.printf(" \t\t▲(atk: %d)", enemy4.atk_save);}
                 }
                 System.out.println();
+                //내 체력바 출력
                 my.myhp();
                 System.out.print("\t\t\t\t\t\t\t\t\t");
-                enemy.enemyhp();
+                //적 체력바 출력
+                if(enemy.hp>0) {
+                    enemy.enemyhp();
+                }
                 if(x==2){
-                    enemy2.enemyhp();
+                    if(enemy2.hp>0) {
+                        enemy2.enemyhp();
+                    }
                 }else if(x==3){
-                    enemy2.enemyhp();
-                    enemy3.enemyhp();
+                    if(enemy2.hp>0) {
+                        enemy2.enemyhp();
+                    }
+                    if(enemy3.hp>0) {
+                        enemy3.enemyhp();
+                    }
                 }
                 else if(x==4){
-                    enemy2.enemyhp();
-                    enemy3.enemyhp();
-                    enemy4.enemyhp();
+                    if(enemy2.hp>0) {
+                        enemy2.enemyhp();
+                    }
+                    if(enemy3.hp>0) {
+                        enemy3.enemyhp();
+                    }
+                    if(enemy4.hp>0) {
+                        enemy4.enemyhp();
+                    }
                 }
                 System.out.println("\n==============================================================================");
                 System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d/3】\n\n", my.energy);
@@ -72,7 +99,7 @@ public class Dungeon1 {
                 }
                 select = scan.nextInt();
                 my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4);
-            } while (select != 0&&enemy.hp>0);
+            } while (select != 0&&enemy.hp>0||select != 0&&enemy2.hp>0||select != 0&&enemy3.hp>0||select != 0&&enemy4.hp>0);
             //적 공격후 상황 출력
             int savehp=my.hp;
             if(enemy.hp>0||enemy2.hp>0||enemy3.hp>0||enemy4.hp>0) {
@@ -123,7 +150,6 @@ public class Dungeon1 {
                 shop.shop_choice(reward1, my, card_list);
                 //상점 카드 버리기, 카드 구매, hp회복 기능
                 //이벤트 확률적으로 출현
-                win++;//스테이지 1-2 코인
             }
             if(my.hp<0){//내가 죽엇으면
                 System.out.println("\n" +
@@ -138,10 +164,5 @@ public class Dungeon1 {
         }while(my.hp>0&&enemy.hp>0||my.hp>0&&enemy2.hp>0||my.hp>0&&enemy3.hp>0||my.hp>0&&enemy4.hp>0);//스테이지 1반복 둘 다 살았다면,
 
 
-        if(win==1){//적 4마리 출현
-            //스테이지 1-2
-        }else{
-            //비워놓기
-        }
     }
 }

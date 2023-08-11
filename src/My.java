@@ -52,22 +52,23 @@ public class My {
             }
         }
     }
-    public void mycard_minus(int x,Reward_1 reward1){//손 패
-            mycard[x] = 0;
-            System.out.printf("%d번 카드가 제거 되었습니다.\n", x);
-        int count=0;
-        for(int i=0; i<100; i++){//존재하는 카드들만 추출
-            if(mycard_y[i]==x){
-                mycard_y[i]=0;
+    public void mycard_minus(int x,Reward_1 reward1) {//손 패
+        mycard[x] = 0;
+        System.out.printf("%d번 카드가 제거 되었습니다.\n", x);
+        int count = 0;
+        for (int i = 0; i < 100; i++) {//존재하는 카드들만 추출
+            if (mycard_y[i] == x) {
+                mycard_y[i] = 0;
             }
         }
-        for(int i=0; i<100; i++) {
+        for (int i = 0; i < 100; i++) {
+            mycard_y[i]=0;
+        }
+        //test
+        for (int i = 0; i < 100; i++) {
             System.out.print(mycard[i]);
         }
         System.out.println();
-        for(int i=0; i<100; i++) {
-            System.out.print(mycard_y[i]);
-        }
     }
     public void card_destription(int x){//덱
         switch(x){
@@ -109,8 +110,8 @@ public class My {
     }
     public void mydeck(int x){//덱 mycard의 카드들을 무작위로 5장 뽑기
         int count=0;
-        mydeck[5]=100;
-        mycard();//저장된 내 카드 호출
+        mydeck[5]=100;//종료 위함
+        //마이카드 메소드삭제함
         for(int i=0; i<100; i++){//존재하는 카드들만 추출
             if(mycard[i]!=0){
                 mycard_y[count]=mycard[i];
