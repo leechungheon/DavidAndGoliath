@@ -23,7 +23,7 @@ public class Dungeon1 {
         do {
             my.energy=3;
             my.defend=0;
-            System.out.println("==============================================================================");
+            System.out.println("==============================================================================\n\n\n\n");
             do {
                 System.out.printf("ጿ                                                                       ");
                 if(x==1&&enemy.hp>0){
@@ -31,7 +31,7 @@ public class Dungeon1 {
                 if(x==2){
                     if(enemy.hp>0){
                         System.out.printf("▲(atk: %d) ", enemy.atk_save);}
-                    if(enemy.hp>0){
+                    if(enemy2.hp>0){
                     System.out.printf(" \t\t▲(atk: %d)", enemy2.atk_save);}
                 }else if(x==3){
                     if(enemy.hp>0){

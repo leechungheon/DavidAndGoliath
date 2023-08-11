@@ -64,10 +64,6 @@ public class My {
         for (int i = 0; i < 100; i++) {
             mycard_y[i]=0;
         }
-        //test
-        for (int i = 0; i < 100; i++) {
-            System.out.print(mycard[i]);
-        }
         System.out.println();
     }
     public void card_destription(int x){//덱

@@ -126,15 +126,42 @@ public class Shop {
             select1 = scan.nextInt();
             if (select1 == 1) {
                 my.mycard[card1]=card1;
+                int count=0;
+                my.mydeck[5]=100;//종료 위함
+                //마이카드 메소드삭제함
+                for(int i=0; i<100; i++){//존재하는 카드들만 추출
+                    if(my.mycard[i]!=0){
+                        my.mycard_y[count]=my.mycard[i];
+                        count++;
+                    }
+                }
                 System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card1);
 
 
             } else if (select1 == 2) {
                 my.mycard[card2]=card2;
+                int count=0;
+                my.mydeck[5]=100;//종료 위함
+                //마이카드 메소드삭제함
+                for(int i=0; i<100; i++){//존재하는 카드들만 추출
+                    if(my.mycard[i]!=0){
+                        my.mycard_y[count]=my.mycard[i];
+                        count++;
+                    }
+                }
                 System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card2);
 
             } else if (select1 == 3) {
                 my.mycard[card3]=card3;
+                int count=0;
+                my.mydeck[5]=100;//종료 위함
+                //마이카드 메소드삭제함
+                for(int i=0; i<100; i++){//존재하는 카드들만 추출
+                    if(my.mycard[i]!=0){
+                        my.mycard_y[count]=my.mycard[i];
+                        count++;
+                    }
+                }
                 System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card3);
 
             } else if (select1 == 4) {

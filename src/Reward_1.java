@@ -8,8 +8,8 @@ public class Reward_1 {
         card3 = 0;
 
         if (x == 1) {
-            System.out.printf("\t\t\t  ●%d골드 획득●\n\n", (int) (Math.random() * 31) + 40);//40~70골드
-            my.gold += (int) (Math.random() * 11) + 10;//10이상 20이하 골드 획득
+            my.gold += (int) (Math.random() * 31) + 40;//10이상 20이하 골드 획득
+            System.out.printf("\t\t\t  ●%d골드 획득●\n\n", my.gold);//40~70골드
             System.out.println("\t\t\t●카드를 선택하세요●\n");
         }
         //카드 1 뽑기
