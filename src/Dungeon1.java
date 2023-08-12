@@ -6,17 +6,30 @@ public class Dungeon1 {
         int select=0;
         Scanner scan= new Scanner(System.in);
 
-        my.fhp=80;
-        my.hp=80;
         if (x == 1) {
+            my.fhp=80;
+            my.hp=80;
             enemy.fhp=40;
             enemy.hp=40;
-            my.mycard();//test
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy3.fhp = 0;
+            enemy3.hp = 0;
+            enemy2.fhp = 0;
+            enemy2.hp = 0;
+            enemy.fhp = 80;
+            enemy.hp = 80;
+            my.mycard();//초기카드 선언
         }else if(x==2) {
             enemy.fhp=30;
             enemy.hp=30;
             enemy2.fhp = 70;
             enemy2.hp = 70;
+        }else if(x==3){
+            enemy2.fhp = 40;
+            enemy2.hp = 40;
+            enemy3.fhp = 80;
+            enemy3.hp = 80;
         }
 
         //출력
@@ -25,7 +38,7 @@ public class Dungeon1 {
             my.defend=0;
             System.out.println("\n\n\n\n");
             do {
-                System.out.printf("\uD83D\uDEB6\u200D➡\uFE0F                                                                    ");
+                System.out.printf("\uD83E\uDDCD                                                                    ");
                 if(x==1&&enemy.hp>0){
                 System.out.printf("\uD83E\uDDDF(\uD83D\uDD2A: %d) ", enemy.atk_save);}
                 if(x==2){
@@ -33,13 +46,11 @@ public class Dungeon1 {
                         System.out.printf("\uD83E\uDDDF\u200D♀\uFE0F(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);}
                     if(enemy2.hp>0){
                     System.out.printf("\uD83E\uDDDB(\uD83D\uDD2A: %d)", enemy2.atk_save);}
-                }else if(x==3){
-                    if(enemy.hp>0){
-                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                }else if(x==3){//진행중
                     if(enemy2.hp>0){
-                        System.out.printf("▲(atk: %d) ", enemy2.atk_save);}
+                        System.out.printf("\uD83D\uDC7E(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);}
                     if(enemy3.hp>0){
-                        System.out.printf(" \t\t▲(atk: %d)", enemy3.atk_save);}
+                        System.out.printf("\uD83D\uDC32(\uD83D\uDD2A: %d)", enemy2.atk_save);}
                 }
                 else if(x==4){
                     if(enemy.hp>0){
@@ -56,10 +67,13 @@ public class Dungeon1 {
                 my.myhp();
                 System.out.print("\t\t\t\t\t\t\t\t\t");
                 //적 체력바 출력
-                if(enemy.hp>0) {
+                if(x==1&&enemy.hp>0) {
                     enemy.enemyhp();
                 }
                 if(x==2){
+                    if(enemy.hp>0){
+                        enemy.enemyhp();
+                    }
                     if(enemy2.hp>0) {
                         enemy2.enemyhp();
                     }
@@ -152,7 +166,7 @@ public class Dungeon1 {
                 //이벤트 확률적으로 출현
             }
             if(my.hp<0){//내가 죽엇으면
-                System.out.println("\n" +
+                System.out.println("\n\n" +
                         " ██████╗  █████╗ ███╗   ███╗███████╗ ██████╗ ██╗   ██╗███████╗██████╗ \n" +
                         "██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" +
                         "██║  ███╗███████║██╔████╔██║█████╗  ██║   ██║██║   ██║█████╗  ██████╔╝\n" +

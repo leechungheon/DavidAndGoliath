@@ -23,6 +23,9 @@ public class My {
 
 
     public void mycard(){//초기 카드, 한번만 사용
+        for(int i=0; i<100; i++) {
+            mycard[i]=0;
+        }
         mycard[100]=100;
         mycard[0]=0;
         mycard[1]=1;
@@ -31,6 +34,7 @@ public class My {
         for(int i=0; i<100; i++) {
             mycard_y[i]=0;
         }
+        //+지우고 초기 카드 넣기 게임오버 후 다시 시작했을 때 카드 남아잇음.
 
     }
     public void mycard_plus(int x,Reward_1 reward1){//손 패
@@ -585,7 +589,6 @@ public class My {
                     enemy2.weak +=1;
                     enemy3.weak +=1;
                     enemy4.weak +=1;
-                    energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『적에게 약화+1 을 부여했습니다.』\n\n\n\n");
                 }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
@@ -669,7 +672,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n",inithp - enemy.hp);
                     }
                     /////
-                }else if(mydeck[1]==7||mydeck[2]==7||mydeck[3]==7||mydeck[4]==7||mydeck[0]==7){//패에 카드를 가지고 있지만, 코스가 부족할 때
+                }else if(mydeck[1]==9||mydeck[2]==9||mydeck[3]==9||mydeck[4]==9||mydeck[0]==9){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
                 }else{
@@ -697,7 +700,15 @@ public class My {
                     int inithp;
                     inithp=enemy.hp;
 
-                    int atk=(int)(Math.random()*3)+1;
+                    int num=(int)(Math.random()*3)+1;
+                    int atk;
+                    if(num==1){
+                        atk=10;
+                    }else if(num==2){
+                        atk=15;
+                    }else{
+                        atk=20;
+                    }
                     if(power>0){
                         atk*=(int)(atk*1.3);
                     }else{
@@ -709,7 +720,7 @@ public class My {
                     enemy4.hp -= atk;
                     energy-=3;
                     System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n", inithp-enemy.hp);
-                }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
+                }else if(mydeck[1]==10||mydeck[2]==10||mydeck[3]==10||mydeck[4]==10||mydeck[0]==10){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
                 }else{

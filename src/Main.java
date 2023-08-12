@@ -39,12 +39,15 @@ public class Main {
                     tutorial.tuTorial();
                 } else {
                     int x=1;//enemy number
-                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
-                    x=2;
-                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);
-                    //던전2
-                    //던전3
-
+                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40 (15~25)
+                    if(my.hp>0) {
+                        x = 2;
+                        dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//30,70
+                        if(my.hp>0){
+                            x=3;
+                            dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//보스전 100(25~35)
+                        }
+                    }
                 }
             } else if (select == 2) {
 
@@ -55,7 +58,7 @@ public class Main {
 
                 break;
             }else{
-                continue;
+                System.out.println("잘못 입력된 값입니다.");
             }
         }
     }
