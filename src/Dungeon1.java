@@ -86,7 +86,7 @@ public class Dungeon1 {
                 System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d/3】\n\n", my.energy);
                 //내 카드 출력 마이턴.
                 my.mydeck(select);
-                //test
+                /*
                 for(int i=0; i<100; i++) {
                     System.out.print(my.mycard[i]);
                 }
@@ -96,7 +96,7 @@ public class Dungeon1 {
                 }
                 for(int i=0; i<6; i++){
                     System.out.print(my.mydeck[i]);
-                }
+                }*/
                 select = scan.nextInt();
                 my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4);
             } while (select != 0&&enemy.hp>0||select != 0&&enemy2.hp>0||select != 0&&enemy3.hp>0||select != 0&&enemy4.hp>0);

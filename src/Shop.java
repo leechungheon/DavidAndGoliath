@@ -6,7 +6,7 @@ public class Shop {
     public void shop_choice(Reward_1 reward1, My my, Card_list card_list) {
 
         int select;
-        do {
+        while(true) {
         Scanner scan = new Scanner(System.in);
         System.out.println("▶1. 상점으로 가기");
         System.out.println("▶2. 전투 진행하기");
@@ -14,7 +14,7 @@ public class Shop {
             select = scan.nextInt();
             if (select == 1) {
                 shop(reward1, my, card_list);
-                x++;
+                x++;//카드 구매후 카드 랜덤 출력되는 문제 수정
 
             } else if (select == 2) {
                 break;
@@ -22,15 +22,15 @@ public class Shop {
             } else {
                 System.out.println("잘못 입력된 값입니다.");
             }
-        } while (select != 2);//진행시에만 탈출
-        x=0;
+        }//진행시에만 탈출
+        x=0;//다음 상점때 다시 출력하기 위함
     }
     public void shop_card(int x, My my){
         if(x>0){
             System.out.print("1.");
             my.card_destription(card1);
-            System.out.print("2.");
             System.out.printf("▶%d 골드\n\n", gold1);
+            System.out.print("2.");
             my.card_destription(card2);
             System.out.printf("▶%d 골드\n\n", gold2);
             System.out.print("3.");
@@ -117,6 +117,7 @@ public class Shop {
                     "\t\t\t\t\t\t╚═╝╩ ╩╚═╝╩  \n남은 골드:%d\t\t\t\t\t\t\t\t\t\t\t남은 체력:(%d/%d)\n", my.gold, my.fhp,my.hp);
             System.out.println("*********************************************************************");
             shop_card(x,my);
+            x++;
             System.out.println("4.『HP 10회복』\n▶ 30 골드\n");
             System.out.println("5.『카드 제거 서비스』\n▶ 70 골드");
             System.out.println();
@@ -125,44 +126,68 @@ public class Shop {
             Scanner scan = new Scanner(System.in);
             select1 = scan.nextInt();
             if (select1 == 1) {
-                my.mycard[card1]=card1;
-                int count=0;
-                my.mydeck[5]=100;//종료 위함
-                //마이카드 메소드삭제함
-                for(int i=0; i<100; i++){//존재하는 카드들만 추출
-                    if(my.mycard[i]!=0){
-                        my.mycard_y[count]=my.mycard[i];
-                        count++;
+                if(my.gold>=gold1&&my.mycard[card1]!=card1) {
+                    my.mycard[card1] = card1;
+                    int count = 0;
+                    my.mydeck[5] = 100;//종료 위함
+                    //마이카드 메소드삭제함
+                    for (int i = 0; i < 100; i++) {//존재하는 카드들만 추출
+                        if (my.mycard[i] != 0) {
+                            my.mycard_y[count] = my.mycard[i];
+                            count++;
+                        }
                     }
+                    my.gold-=gold1;
+                    System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card1);
+                }else if(my.gold>=gold1&&my.mycard[card1]==card1){
+                    System.out.println("이미 구매한 카드입니다.\n");
                 }
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card1);
+                else{
+                    System.out.println("골드가 부족합니다.\n");
+                }
 
 
             } else if (select1 == 2) {
-                my.mycard[card2]=card2;
-                int count=0;
-                my.mydeck[5]=100;//종료 위함
-                //마이카드 메소드삭제함
-                for(int i=0; i<100; i++){//존재하는 카드들만 추출
-                    if(my.mycard[i]!=0){
-                        my.mycard_y[count]=my.mycard[i];
-                        count++;
+                if(my.gold>=gold2&&my.mycard[card2]!=card2) {
+                    my.mycard[card2] = card2;
+                    int count = 0;
+                    my.mydeck[5] = 100;//종료 위함
+                    //마이카드 메소드삭제함
+                    for (int i = 0; i < 100; i++) {//존재하는 카드들만 추출
+                        if (my.mycard[i] != 0) {
+                            my.mycard_y[count] = my.mycard[i];
+                            count++;
+                        }
                     }
+                    my.gold-=gold2;
+                    System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card2);
+                }else if(my.gold>=gold2&&my.mycard[card2]==card2) {
+                    System.out.println("이미 구매한 카드입니다.\n");
+                } else{
+                    System.out.println("골드가 부족합니다.\n");
                 }
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card2);
 
             } else if (select1 == 3) {
-                my.mycard[card3]=card3;
-                int count=0;
-                my.mydeck[5]=100;//종료 위함
-                //마이카드 메소드삭제함
-                for(int i=0; i<100; i++){//존재하는 카드들만 추출
-                    if(my.mycard[i]!=0){
-                        my.mycard_y[count]=my.mycard[i];
-                        count++;
+                if(my.gold>=gold3&&my.mycard[card3]!=card3) {
+                if(my.gold>=gold3) {
+                    my.mycard[card3] = card3;
+                    int count = 0;
+                    my.mydeck[5] = 100;//종료 위함
+                    //마이카드 메소드삭제함
+                    for (int i = 0; i < 100; i++) {//존재하는 카드들만 추출
+                        if (my.mycard[i] != 0) {
+                            my.mycard_y[count] = my.mycard[i];
+                            count++;
+                        }
                     }
+                    my.gold-=gold3;
+                    System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card3);
+                }else if(my.gold>=gold3&&my.mycard[card3]==card3){
+                    System.out.println("이미 구매한 카드입니다.\n");
                 }
-                System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n",card3);
+                }else{
+                    System.out.println("골드가 부족합니다.\n");
+                }
 
             } else if (select1 == 4) {
                 if(my.gold>=30) {
@@ -174,6 +199,7 @@ public class Shop {
                     System.out.println("골드가 부족합니다.\n");
                 }
             } else if (select1 == 5) {
+                if(my.gold>=70){
                 //조건문 돈이 충분하다면//카드가 5장 이상이라면
                 System.out.println("몇 번 카드를 제거하시겠습니까?");
                 for(int i=0; i<100; i++){
@@ -185,7 +211,10 @@ public class Shop {
                 if(select3==0) {
                     //뒤로가기
                 }else {
+                    my.gold-=70;
                     my.mycard_minus(select3, reward1);
+                }}else if(my.gold<70){
+                    System.out.println("골드가 부족합니다.\n");
                 }
                 //돈이 충분하지않다면
             } else if (select1 == 0) {

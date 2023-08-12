@@ -300,12 +300,17 @@ public class My {
                     }
                     //
                     int inithp=enemy.hp;
+                    int atk;
+                    if(power>0){
+                        atk=(int)(4*1.3);
+                    }else{
+                        atk=4;
+                    }
 
-                    enemy.hp -= 4;
-                    enemy2.hp -= 4;
-                    enemy3.hp -= 4;
-                    enemy4.hp -= 4;
-                    power+=1;
+                    enemy.hp -= atk;
+                    enemy2.hp -= atk;
+                    enemy3.hp -= atk;
+                    enemy4.hp -= atk;
 
                     energy--;
                     System.out.println("==============================================================================");
@@ -320,6 +325,7 @@ public class My {
                 if(power>0){
                     power--;
                 }
+                power+=1;
                 break;
             case 5://혈류
                 if(energy>=1&&mydeck[1]==5||energy>=1&&mydeck[2]==5||energy>=1&&mydeck[3]==5||energy>=1&&mydeck[4]==5||energy>=1&&mydeck[0]==5) {//카드 사용후 제거
