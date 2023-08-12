@@ -23,16 +23,16 @@ public class Dungeon1 {
         do {
             my.energy=3;
             my.defend=0;
-            System.out.println("==============================================================================\n\n\n\n");
+            System.out.println("\n\n\n\n");
             do {
-                System.out.printf("ጿ                                                                       ");
+                System.out.printf("\uD83D\uDEB6\u200D➡\uFE0F                                                                       ");
                 if(x==1&&enemy.hp>0){
-                System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                System.out.printf("\uD83E\uDDDF(\uD83D\uDD2A: %d) ", enemy.atk_save);}
                 if(x==2){
                     if(enemy.hp>0){
-                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
+                        System.out.printf("\uD83E\uDDDF\u200D♀\uFE0F(\uD83D\uDD2A: %d) ", enemy.atk_save);}
                     if(enemy2.hp>0){
-                    System.out.printf(" \t\t▲(atk: %d)", enemy2.atk_save);}
+                    System.out.printf(" \t\t\uD83E\uDDDB(\uD83D\uDD2A: %d)", enemy2.atk_save);}
                 }else if(x==3){
                     if(enemy.hp>0){
                         System.out.printf("▲(atk: %d) ", enemy.atk_save);}
@@ -119,7 +119,7 @@ public class Dungeon1 {
                     enemy4.enemyatk(my);
                     enemy4.atk_save = enemy4.enemypower();
                 }
-                System.out.printf("\n\t\t\t\t\t\t『적에게 %d 데미지를 받았습니다.』\n\n\n", savehp - my.hp);
+                System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
             } else{//적이 죽엇으면
                 System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                         " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
