@@ -25,14 +25,14 @@ public class Dungeon1 {
             my.defend=0;
             System.out.println("\n\n\n\n");
             do {
-                System.out.printf("\uD83D\uDEB6\u200D➡\uFE0F                                                                       ");
+                System.out.printf("\uD83D\uDEB6\u200D➡\uFE0F                                                                    ");
                 if(x==1&&enemy.hp>0){
                 System.out.printf("\uD83E\uDDDF(\uD83D\uDD2A: %d) ", enemy.atk_save);}
                 if(x==2){
                     if(enemy.hp>0){
-                        System.out.printf("\uD83E\uDDDF\u200D♀\uFE0F(\uD83D\uDD2A: %d) ", enemy.atk_save);}
+                        System.out.printf("\uD83E\uDDDF\u200D♀\uFE0F(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);}
                     if(enemy2.hp>0){
-                    System.out.printf(" \t\t\uD83E\uDDDB(\uD83D\uDD2A: %d)", enemy2.atk_save);}
+                    System.out.printf("\uD83E\uDDDB(\uD83D\uDD2A: %d)", enemy2.atk_save);}
                 }else if(x==3){
                     if(enemy.hp>0){
                         System.out.printf("▲(atk: %d) ", enemy.atk_save);}

@@ -94,10 +94,10 @@ public class My {
                 System.out.printf("【8번 카드】 위압⒪: 적 전체에게 약화를 1 부여한다.\n");
                 break;
             case 9:
-                System.out.printf("【9번 카드】 격노⒪: 이번 턴에 데미지를 줄 때마다 방어도가 3씩 증가한다.\n");
+                System.out.printf("【9번 카드】 철의파동⑴: 데미지 5를 주고 방어도 5를 얻습니다.\n");
                 break;
             case 10:
-                System.out.printf("【10번 카드】 진정한 끈기⑴: 방어도를 7얻습니다. 무작위로 패 한장을 버립니다.\n");
+                System.out.printf("【10번 카드】 소용돌이⑶: 모든 적들에게 피해를 [10,15,20] 중 무작위로 입힙니다.\n");
                 break;
             case 100://turn over
                 System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 턴을 종료");
@@ -352,50 +352,30 @@ public class My {
                           if (choice == 1) {
                               inithp = enemy.hp;
                               enemy.hp -= atk;
-                              if (defend >= 2) {
-                                  defend -= 2;
-                              } else {
-                                  defend = 0;
-                                  hp -= defend - 2;
-                              }
+                              hp-=2;
                               energy--;
                               System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy.hp);
                               break;
                           } else if (choice == 2) {
                               inithp = enemy2.hp;
-                              energy--;
                               System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy2.hp);
                               enemy2.hp -= atk;
-                              if (defend >= 2) {
-                                  defend -= 2;
-                              } else {
-                                  defend = 0;
-                                  hp -= defend - 2;
-                              }
+                              hp-=2;
+                              energy--;
                               break;
                           } else if (choice == 3&&x>=3) {
                               inithp = enemy3.hp;
                               enemy3.hp -= atk;
-                              if (defend >= 2) {
-                                  defend -= 2;
-                              } else {
-                                  defend = 0;
-                                  hp -= defend - 2;
-                              }
+                              hp-=2;
                               energy--;
-                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy3.hp);
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", 2, choice, inithp - enemy3.hp);
                               break;
                           } else if (choice == 4&&x>=4) {
                               inithp = enemy4.hp;
                               enemy4.hp -= atk;
-                              if (defend >= 2) {
-                                  defend -= 2;
-                              } else {
-                                  defend = 0;
-                                  hp -= defend - 2;
-                              }
+                              hp-=2;
                               energy--;
-                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, choice, inithp - enemy4.hp);
+                              System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적%d에게 %d 데미지를 입혔습니다.』\n\n\n\n", 2, choice, inithp - enemy4.hp);
                               break;
                           } else {
                               System.out.println("존재하지 않는 적입니다.");
@@ -404,14 +384,9 @@ public class My {
                     }else{
                         inithp = enemy.hp;
                         enemy.hp -= atk;
-                        if (defend >= 2) {
-                            defend -= 2;
-                        } else {
-                            defend = 0;
-                            hp -= defend - 2;
-                        }
+                        hp-=2;
                         energy--;
-                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", defend - 2, inithp - enemy.hp);
+                        System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", 2, inithp - enemy.hp);
 
                     }
 
@@ -612,6 +587,128 @@ public class My {
                     enemy4.weak +=1;
                     energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『적에게 약화+1 을 부여했습니다.』\n\n\n\n");
+                }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
+                    System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
+                    System.out.println("\n\n\n\n");
+                }else{
+                    System.out.println("존재하지 않는 카드");
+                    System.out.println("\n\n\n\n");
+                }
+                if(power>0){
+                    power--;
+                }
+                break;
+            case 9://철의파동
+                if(energy>=2&&mydeck[1]==9||energy>=2&&mydeck[2]==9||energy>=2&&mydeck[3]==9||energy>=2&&mydeck[4]==9||energy>=2&&mydeck[0]==9) {
+                    //에너지가 충분하고, 내가 패에 카드를 가지고 있다면 실행
+                    if(mydeck[1]==9){
+                        mydeck[1]=0;
+                    }else if(mydeck[2]==9){
+                        mydeck[2]=0;
+                    }else if(mydeck[3]==9){
+                        mydeck[3]=0;
+                    }else if(mydeck[4]==9){
+                        mydeck[4]=0;
+                    }else{
+                        mydeck[0]=0;
+                    }
+                    ///////반복시작
+                    int choice;
+                    int inithp;
+                    int atk;
+                    if(power>0){
+                        atk=(int)(5*1.3);
+                        power--;
+                    }else{
+                        atk=5;
+                    }
+                    defend+=5;
+
+
+
+                    if(x>=2) {//적이 둘 이상일때
+                        while(true) {
+                            System.out.println("몇 번 적을 공격하시겠습니까?");
+                            Scanner scan = new Scanner(System.in);
+                            choice = scan.nextInt();
+
+
+                            if (choice == 1) {
+                                inithp = enemy.hp;
+                                enemy.hp -= atk;
+                                energy--;
+                                System.out.printf("\n\t\t\t\t\t\t 『방어도 5를 얻고 적%d 에게 데미지 %d를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
+                                break;
+                            } else if (choice == 2) {
+                                inithp = enemy2.hp;
+                                enemy2.hp -= atk;
+                                energy--;
+                                System.out.printf("\n\t\t\t\t\t\t 『방어도 5를 얻고 적%d 에게 데미지 %d를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
+                                break;
+                            } else if (choice == 3 && x >= 3) {
+                                inithp = enemy3.hp;
+                                enemy3.hp -= atk;
+                                energy--;
+                                System.out.printf("\n\t\t\t\t\t\t 『방어도 5를 얻고 적%d 에게 데미지 %d를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
+                                break;
+                            } else if (choice == 4 && x >= 4) {
+                                inithp = enemy4.hp;
+                                enemy4.hp -= atk;
+                                energy--;
+                                System.out.printf("\n\t\t\t\t\t\t 『방어도 5를 얻고 적%d 에게 데미지 %d를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
+                                break;
+                            } else {
+                                System.out.println("존재하지 않는 적입니다.");
+                            }
+                        }
+
+                    }else{//적이 하나라면
+                        inithp = enemy.hp;
+                        enemy.hp -= atk;
+                        energy--;
+                        System.out.printf("\n\t\t\t\t\t\t 『취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n",inithp - enemy.hp);
+                    }
+                    /////
+                }else if(mydeck[1]==7||mydeck[2]==7||mydeck[3]==7||mydeck[4]==7||mydeck[0]==7){//패에 카드를 가지고 있지만, 코스가 부족할 때
+                    System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
+                    System.out.println("\n\n\n\n");
+                }else{
+                    System.out.println("존재하지 않는 카드");
+                    System.out.println("\n\n\n\n");
+                }
+                if(power>0){
+                    power--;
+                }
+
+                break;
+            case 10://소용돌이
+                if(energy>=3&&mydeck[1]==10||energy>=3&&mydeck[2]==10||energy>=3&&mydeck[3]==10||energy>=3&&mydeck[4]==10||energy>=3&&mydeck[0]==10) {
+                    if(mydeck[1]==10){
+                        mydeck[1]=0;
+                    }else if(mydeck[2]==10){
+                        mydeck[2]=0;
+                    }else if(mydeck[3]==10){
+                        mydeck[3]=0;
+                    }else if(mydeck[4]==10){
+                        mydeck[4]=0;
+                    }else{
+                        mydeck[0]=0;
+                    }
+                    int inithp;
+                    inithp=enemy.hp;
+
+                    int atk=(int)(Math.random()*3)+1;
+                    if(power>0){
+                        atk*=(int)(atk*1.3);
+                    }else{
+
+                    }
+                    enemy.hp -= atk;
+                    enemy2.hp -= atk;
+                    enemy3.hp -= atk;
+                    enemy4.hp -= atk;
+                    energy-=3;
+                    System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n", inithp-enemy.hp);
                 }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
