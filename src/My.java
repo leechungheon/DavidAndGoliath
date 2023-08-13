@@ -189,9 +189,18 @@ public class My {
                             }
                             int choice=0;
                             int e_count;
-                            System.out.println("몇 번 적을 공격하시겠습니까?");
-                            Scanner scan = new Scanner(System.in);
-                            e_count=scan.nextInt();
+                            while(true) {
+                                System.out.println("몇 번 적을 공격하시겠습니까?");
+                                Scanner scan = new Scanner(System.in);
+                                e_count = scan.nextInt();
+                                if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
+                                    System.out.println("잘못 입력된 값입니다.");
+                                } else {
+                                    break;
+                                }
+                            }
+
+
 
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
@@ -407,9 +416,16 @@ public class My {
                           }
                           int choice=0;
                           int e_count;
-                          System.out.println("몇 번 적을 공격하시겠습니까?");
-                          Scanner scan = new Scanner(System.in);
-                          e_count=scan.nextInt();
+                          while(true) {
+                              System.out.println("몇 번 적을 공격하시겠습니까?");
+                              Scanner scan = new Scanner(System.in);
+                              e_count = scan.nextInt();
+                              if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
+                                  System.out.println("잘못 입력된 값입니다.");
+                              } else {
+                                  break;
+                              }
+                          }
 
                           for(int i=0; i<4; i++){
                               if(e_num[i]!=0){
@@ -525,9 +541,16 @@ public class My {
                             }
                             int choice=0;
                             int e_count;
-                            System.out.println("몇 번 적을 공격하시겠습니까?");
-                            Scanner scan = new Scanner(System.in);
-                            e_count=scan.nextInt();
+                            while(true) {
+                                System.out.println("몇 번 적을 공격하시겠습니까?");
+                                Scanner scan = new Scanner(System.in);
+                                e_count = scan.nextInt();
+                                if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
+                                    System.out.println("잘못 입력된 값입니다.");
+                                } else {
+                                    break;
+                                }
+                            }
 
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
@@ -641,9 +664,16 @@ public class My {
                             }
                             int choice=0;
                             int e_count;
-                            System.out.println("몇 번 적을 공격하시겠습니까?");
-                            Scanner scan = new Scanner(System.in);
-                            e_count=scan.nextInt();
+                            while(true) {
+                                System.out.println("몇 번 적을 공격하시겠습니까?");
+                                Scanner scan = new Scanner(System.in);
+                                e_count = scan.nextInt();
+                                if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
+                                    System.out.println("잘못 입력된 값입니다.");
+                                } else {
+                                    break;
+                                }
+                            }
 
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
@@ -661,28 +691,28 @@ public class My {
                                 enemy.hp -= atk;
                                 energy-=2;
                                 enemy.weak+=2;
-                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 약화+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy.hp);
                                 break;
                             } else if (choice == 2) {
                                 inithp = enemy2.hp;
                                 enemy2.hp -= atk;
                                 energy-=2;
                                 enemy2.weak+=2;
-                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 약화+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy2.hp);
                                 break;
                             } else if (choice == 3 && x >= 3) {
                                 inithp = enemy3.hp;
                                 enemy3.hp -= atk;
                                 energy-=2;
                                 enemy3.weak+=2;
-                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 약화+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy3.hp);
                                 break;
                             } else if (choice == 4 && x >= 4) {
                                 inithp = enemy4.hp;
                                 enemy4.hp -= atk;
                                 energy-=2;
                                 enemy4.weak+=2;
-                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
+                                System.out.printf("\n\t\t\t\t\t\t 『적%d에게 약화+2와 %d 데미지를 입혔습니다.』\n\n\n\n", choice, inithp - enemy4.hp);
                                 break;
                             } else {
                                 System.out.println("존재하지 않는 적입니다.");
@@ -792,9 +822,16 @@ public class My {
                             }
                             int choice=0;
                             int e_count;
-                            System.out.println("몇 번 적을 공격하시겠습니까?");
-                            Scanner scan = new Scanner(System.in);
-                            e_count=scan.nextInt();
+                            while(true) {
+                                System.out.println("몇 번 적을 공격하시겠습니까?");
+                                Scanner scan = new Scanner(System.in);
+                                e_count = scan.nextInt();
+                                if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
+                                    System.out.println("잘못 입력된 값입니다.");
+                                } else {
+                                    break;
+                                }
+                            }
 
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){

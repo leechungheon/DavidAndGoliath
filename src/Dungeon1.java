@@ -17,18 +17,55 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy2.fhp = 0;
             enemy2.hp = 0;
+            enemy.enemy_name[0]="좀비";
 
             my.mycard();//초기카드 선언
         }else if(x==2) {
             enemy.fhp=30;
             enemy.hp=30;
-            enemy2.fhp = 70;
-            enemy2.hp = 70;
+            enemy2.fhp = 40;
+            enemy2.hp = 40;
+            enemy3.fhp = 0;
+            enemy3.hp = 0;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy.enemy_name[0]="여성좀비";
+            enemy.enemy_name[1]="뱀파이어";
         }else if(x==3){
+            enemy.fhp=0;
+            enemy.hp=0;
             enemy2.fhp = 40;
             enemy2.hp = 40;
             enemy3.fhp = 80;
             enemy3.hp = 80;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy.enemy_name[1]="하수구고블린";
+            enemy.enemy_name[2]="에일리언";
+
+        }else if(x==4){
+            //my.fhp=80;
+            //my.hp=80;
+            //my.mycard();//초기카드 선언
+            enemy.fhp=0;
+            enemy.hp=0;
+            enemy3.fhp = 0;
+            enemy3.hp = 0;
+            enemy2.fhp = 0;
+            enemy2.hp = 0;
+            enemy4.fhp = 100;
+            enemy4.hp = 100;
+            enemy.enemy_name[3]="모르고스";
+            System.out.println("\n" +
+                    " ▄▀▀█▄▄   ▄▀▀▀▀▄   ▄▀▀▀▀▄  ▄▀▀▀▀▄      ▄▀▀▀▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄   ▄▀▀▀▀▄   ▄▀▀█▄▄▄▄ \n" +
+                    "▐ ▄▀   █ █      █ █ █   ▐ █ █   ▐     █ █   ▐ █    █  ▐ ▐ ▄▀ ▀▄ █        ▐  ▄▀   ▐ \n" +
+                    "  █▄▄▄▀  █      █    ▀▄      ▀▄          ▀▄   ▐   █       █▄▄▄█ █    ▀▄▄   █▄▄▄▄▄  \n" +
+                    "  █   █  ▀▄    ▄▀ ▀▄   █  ▀▄   █      ▀▄   █     █       ▄▀   █ █     █ █  █    ▌  \n" +
+                    " ▄▀▄▄▄▀    ▀▀▀▀    █▀▀▀    █▀▀▀        █▀▀▀    ▄▀       █   ▄▀  ▐▀▄▄▄▄▀ ▐ ▄▀▄▄▄▄   \n" +
+                    "█    ▐             ▐       ▐           ▐      █         ▐   ▐   ▐         █    ▐   \n" +
+                    "▐                                             ▐                           ▐        \n");
+
+           // my.mycard();//초기카드 선언
         }
 
         //출력
@@ -49,17 +86,11 @@ public class Dungeon1 {
                     if(enemy2.hp>0){
                         System.out.printf("\uD83D\uDC7E(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);}
                     if(enemy3.hp>0){
-                        System.out.printf("\uD83D\uDC32(\uD83D\uDD2A: %d)", enemy2.atk_save);}
+                        System.out.printf("\uD83D\uDC7D(\uD83D\uDD2A: %d)", enemy2.atk_save);}
                 }
                 else if(x==4){
-                    if(enemy.hp>0){
-                        System.out.printf("▲(atk: %d) ", enemy.atk_save);}
-                    if(enemy2.hp>0){
-                        System.out.printf("▲(atk: %d) ", enemy2.atk_save);}
-                    if(enemy3.hp>0){
-                        System.out.printf(" \t\t▲(atk: %d)", enemy3.atk_save);}
                     if(enemy4.hp>0){
-                        System.out.printf(" \t\t▲(atk: %d)", enemy4.atk_save);}
+                        System.out.printf("\uD83D\uDC32(\uD83D\uDD2A: %d)", enemy4.atk_save);}
                 }
                 System.out.println();
                 //내 체력바 출력
@@ -85,12 +116,6 @@ public class Dungeon1 {
                     }
                 }
                 else if(x==4){
-                    if(enemy2.hp>0) {
-                        enemy2.enemyhp();
-                    }
-                    if(enemy3.hp>0) {
-                        enemy3.enemyhp();
-                    }
                     if(enemy4.hp>0) {
                         enemy4.enemyhp();
                     }

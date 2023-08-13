@@ -40,13 +40,17 @@ public class Main {
                     tutorial.tuTorial();
                 } else {
                     int x=1;//enemy number
-                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40 (15~25)
+                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40
                     if(my.hp>0) {
                         x = 2;
                         dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//30,70
                         if(my.hp>0){
                             x=3;
-                            dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//보스전 100(25~35)
+                            dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40 80
+                            if(my.hp>0){
+                                x=4;
+                                dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//보스전 100(25~35)
+                            }
                         }
                     }
                 }
