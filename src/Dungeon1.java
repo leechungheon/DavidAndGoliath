@@ -29,6 +29,8 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy4.fhp = 0;
             enemy4.hp = 0;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[0]="여성좀비";
             enemy.enemy_name[1]="뱀파이어";
         }else if(x==3){
@@ -40,6 +42,8 @@ public class Dungeon1 {
             enemy3.hp = 60;
             enemy4.fhp = 0;
             enemy4.hp = 0;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[1]="하수구고블린";
             enemy.enemy_name[2]="에일리언";
 
@@ -55,6 +59,8 @@ public class Dungeon1 {
             enemy2.hp = 0;
             enemy4.fhp = 80;
             enemy4.hp = 80;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[3]="모르고스";
             System.out.println("\n" +
                     " ▄▀▀█▄▄   ▄▀▀▀▀▄   ▄▀▀▀▀▄  ▄▀▀▀▀▄      ▄▀▀▀▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄   ▄▀▀▀▀▄   ▄▀▀█▄▄▄▄ \n" +
@@ -77,6 +83,8 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy2.fhp = 0;
             enemy2.hp = 0;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[0]="허수아비";
             my.mycard();//초기카드 선언
         }else if(x==5){
@@ -90,20 +98,24 @@ public class Dungeon1 {
             enemy3.hp = 30;
             enemy2.fhp = 30;
             enemy2.hp = 30;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[0]="엘프1";
             enemy.enemy_name[1]="엘프2";
             enemy.enemy_name[2]="엘프3";
             //my.mycard();//초기카드 선언
         }
         else if(x==6){
-            enemy.fhp=40;
-            enemy.hp=40;
+            enemy.fhp=20;
+            enemy.hp=20;
             enemy4.fhp = 0;
             enemy4.hp = 0;
             enemy3.fhp = 40;
             enemy3.hp = 40;
-            enemy2.fhp = 40;
-            enemy2.hp = 40;
+            enemy2.fhp = 30;
+            enemy2.hp = 30;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[0]="도깨비1";
             enemy.enemy_name[1]="도깨비2";
             enemy.enemy_name[2]="도깨비3";
@@ -117,6 +129,8 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy2.fhp = 0;
             enemy2.hp = 0;
+            my.power=0;
+            enemy.weak=0;
             enemy.enemy_name[0]="골리앗";
             //my.mycard();//초기카드 선언
         }

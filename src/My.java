@@ -105,10 +105,10 @@ public class My {
                 System.out.printf("【10번 카드】 소용돌이⑶: 모든 적들에게 피해를 [10,15,20] 중 무작위로 입힌다.\n");
                 break;
             case 11:
-                System.out.printf("【11번 카드】 포식⑴: 데미지를 10 준다. 이 공격으로 적이 죽었으면 체력을 5 회복한다.\n");
+                System.out.printf("【11번 카드】 포식⑴: 데미지를 10 준다. 이 공격으로 적이 죽었으면 체력을 10 회복한다.\n");
                 break;
             case 12:
-                System.out.printf("【12번 카드】 지옥불⑵: 덱의 카드를 전부 소멸시킵니다. 소멸시킨 카드 당 7의 데미지를 준다.\n");
+                System.out.printf("【12번 카드】 지옥불⑵: 덱의 카드를 전부 소멸시키고 소멸시킨 카드 당 7의 데미지를 준다.\n");
                 break;
             case 13:
                 System.out.printf("【13번 카드】 참호⑵: 방어도가 2배로 증가한다.\n");
@@ -1037,8 +1037,8 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[0], atk);
                                 if(enemy.hp<0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 5 회복합니다.』\n\n\n\n");
-                                    hp+=5;
+                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                    hp+=10;
                                 }
                                 break;
                             } else if (choice == 2) {
@@ -1047,8 +1047,8 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[1], atk);
                                 if(enemy2.hp<0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 5 회복합니다.』\n\n\n\n");
-                                    hp+=5;
+                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                    hp+=10;
                                 }
                                 break;
                             } else if (choice == 3 && x >= 3) {
@@ -1057,8 +1057,8 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[2], atk);
                                 if(enemy3.hp<0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 5 회복합니다.』\n\n\n\n");
-                                    hp+=5;
+                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                    hp+=10;
                                 }
                                 break;
                             } else if (choice == 4 && x >= 4) {
@@ -1067,8 +1067,8 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[3], atk);
                                 if(enemy4.hp<0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 5 회복합니다.』\n\n\n\n");
-                                    hp+=5;
+                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                    hp+=10;
                                 }
                                 break;
                             } else {
@@ -1277,7 +1277,7 @@ public class My {
 
                 break;
             case 15://유령갑옷
-                if(energy>=1&&mydeck[1]==15||energy>=1&&mydeck[2]==15||energy>=1&&mydeck[3]==15||energy>=1&&mydeck[4]==15|energy>=1&&mydeck[0]==15) {
+                if(energy>=1&&mydeck[1]==15||energy>=1&&mydeck[2]==15||energy>=1&&mydeck[3]==15||energy>=1&&mydeck[4]==15||energy>=1&&mydeck[0]==15) {
                     if(mydeck[1]==15){
                         mydeck[1]=0;
                     }else if(mydeck[2]==15){
@@ -1291,6 +1291,7 @@ public class My {
                     }
 
                     defend+=10;
+                    energy-=2;
 
                     System.out.printf("\n\t\t\t\t\t\t 『+10 방어력을 얻었습니다.』\n\n\n\n");
                 }else if(mydeck[1]==15||mydeck[2]==15||mydeck[3]==15||mydeck[4]==15||mydeck[0]==15){
