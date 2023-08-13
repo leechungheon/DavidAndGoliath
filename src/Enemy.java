@@ -8,7 +8,7 @@ public class Enemy {
 
 
     public int enemypower() {//적 다음턴 공격력 랜덤 출력
-         atk = (int) (Math.random() * 11) + 15;
+         atk = (int) (Math.random() * 11) + 10;
         return atk;
     }
     public int bosspower() {//적 다음턴 공격력 랜덤 출력

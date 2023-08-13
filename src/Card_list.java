@@ -13,7 +13,6 @@ public class Card_list {
     //+취약 약화 표기
     //1-4 보스전 단 한 마리.
     //튜토리얼 전체 수정 x=0
-    //죽고 다시 시작하면 적 체력바 출력안됨
 
     public void all_cardlist() {
         cardlist[1]=1;

@@ -17,8 +17,7 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy2.fhp = 0;
             enemy2.hp = 0;
-            enemy.fhp = 80;
-            enemy.hp = 80;
+
             my.mycard();//초기카드 선언
         }else if(x==2) {
             enemy.fhp=30;

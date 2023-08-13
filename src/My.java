@@ -152,7 +152,6 @@ public class My {
                         mydeck[0]=0;
                     }
                     ///////반복시작
-                    int choice;
                     int inithp;
                     int intimyhp;
                     int atk;
@@ -165,11 +164,45 @@ public class My {
 
                     if(x>=2) {//적이 둘 이상일때
                         while(true) {
+                            //while문 아래 시작
+                            int [] e_num=new int[4];
+                            int count;
+                            if(enemy.hp>0){
+                                e_num[0]=1;
+                            }else{
+                                e_num[0]=0;
+                            }
+                            if(enemy2.hp>0){
+                                e_num[1]=1;
+                            }else{
+                                e_num[1]=0;
+                            }
+                            if(enemy3.hp>0){
+                                e_num[2]=1;
+                            }else{
+                                e_num[2]=0;
+                            }
+                            if(enemy4.hp>0){
+                                e_num[3]=1;
+                            }else{
+                                e_num[3]=0;
+                            }
+                            int choice=0;
+                            int e_count;
                             System.out.println("몇 번 적을 공격하시겠습니까?");
                             Scanner scan = new Scanner(System.in);
-                            choice = scan.nextInt();
+                            e_count=scan.nextInt();
 
-
+                            for(int i=0; i<4; i++){
+                                if(e_num[i]!=0){
+                                    choice++;
+                                    if(choice==e_count){
+                                        choice=i+1;
+                                        break;
+                                    }
+                                }
+                            }
+                            //초이스 이프문 위에 마지막
 
                             if (choice == 1) {
                                 inithp = enemy.hp;
@@ -338,9 +371,7 @@ public class My {
                     }else{
                         mydeck[0]=0;
                     }
-                    int choice;
                     int inithp;
-                    int intimyhp;
                     int atk;
                     if(power>0){
                         atk=(int)(15*1.3);
@@ -351,8 +382,46 @@ public class My {
                     System.out.println("몇 번 적을 공격하시겠습니까?");
                     if(x>=2) {//적이 둘 이상일때
                       while(true) {
+                          //while문 아래 시작
+                          int [] e_num=new int[4];
+                          int count;
+                          if(enemy.hp>0){
+                              e_num[0]=1;
+                          }else{
+                              e_num[0]=0;
+                          }
+                          if(enemy2.hp>0){
+                              e_num[1]=1;
+                          }else{
+                              e_num[1]=0;
+                          }
+                          if(enemy3.hp>0){
+                              e_num[2]=1;
+                          }else{
+                              e_num[2]=0;
+                          }
+                          if(enemy4.hp>0){
+                              e_num[3]=1;
+                          }else{
+                              e_num[3]=0;
+                          }
+                          int choice=0;
+                          int e_count;
+                          System.out.println("몇 번 적을 공격하시겠습니까?");
                           Scanner scan = new Scanner(System.in);
-                          choice = scan.nextInt();
+                          e_count=scan.nextInt();
+
+                          for(int i=0; i<4; i++){
+                              if(e_num[i]!=0){
+                                  choice++;
+                                  if(choice==e_count){
+                                      choice=i+1;
+                                      break;
+                                  }
+                              }
+                          }
+                          //초이스 이프문 위에 마지막
+
                           if (choice == 1) {
                               inithp = enemy.hp;
                               enemy.hp -= atk;
@@ -420,7 +489,6 @@ public class My {
                         mydeck[0]=0;
                     }
                     ///////반복시작
-                    int choice;
                     int inithp;
                     int atk;
                     if(power>0){
@@ -430,11 +498,47 @@ public class My {
                     }
 
                     if(x>=2) {//적이 둘 이상일때
+
                         while(true) {
+                            //while문 아래 시작
+                            int [] e_num=new int[4];
+                            int count;
+                            if(enemy.hp>0){
+                                e_num[0]=1;
+                            }else{
+                                e_num[0]=0;
+                            }
+                            if(enemy2.hp>0){
+                                e_num[1]=1;
+                            }else{
+                                e_num[1]=0;
+                            }
+                            if(enemy3.hp>0){
+                                e_num[2]=1;
+                            }else{
+                                e_num[2]=0;
+                            }
+                            if(enemy4.hp>0){
+                                e_num[3]=1;
+                            }else{
+                                e_num[3]=0;
+                            }
+                            int choice=0;
+                            int e_count;
                             System.out.println("몇 번 적을 공격하시겠습니까?");
                             Scanner scan = new Scanner(System.in);
-                            choice = scan.nextInt();
+                            e_count=scan.nextInt();
 
+                            for(int i=0; i<4; i++){
+                                if(e_num[i]!=0){
+                                    choice++;
+                                    if(choice==e_count){
+                                        choice=i+1;
+                                        break;
+                                    }
+                                }
+                            }
+                            //초이스 이프문 위에 마지막
 
                             if (choice == 1) {
                                 inithp = enemy.hp;
@@ -499,9 +603,7 @@ public class My {
                         mydeck[0]=0;
                     }
                     ///////반복시작
-                    int choice;
                     int inithp;
-                    int intimyhp;
                     int atk;
                     if(power>0){
                         atk=(int)(12*1.3);
@@ -514,10 +616,45 @@ public class My {
 
                     if(x>=2) {//적이 둘 이상일때
                         while(true) {
+                            //while문 아래 시작
+                            int [] e_num=new int[4];
+                            int count;
+                            if(enemy.hp>0){
+                                e_num[0]=1;
+                            }else{
+                                e_num[0]=0;
+                            }
+                            if(enemy2.hp>0){
+                                e_num[1]=1;
+                            }else{
+                                e_num[1]=0;
+                            }
+                            if(enemy3.hp>0){
+                                e_num[2]=1;
+                            }else{
+                                e_num[2]=0;
+                            }
+                            if(enemy4.hp>0){
+                                e_num[3]=1;
+                            }else{
+                                e_num[3]=0;
+                            }
+                            int choice=0;
+                            int e_count;
                             System.out.println("몇 번 적을 공격하시겠습니까?");
                             Scanner scan = new Scanner(System.in);
-                            choice = scan.nextInt();
+                            e_count=scan.nextInt();
 
+                            for(int i=0; i<4; i++){
+                                if(e_num[i]!=0){
+                                    choice++;
+                                    if(choice==e_count){
+                                        choice=i+1;
+                                        break;
+                                    }
+                                }
+                            }
+                            //초이스 이프문 위에 마지막
 
                             if (choice == 1) {
                                 inithp = enemy.hp;
@@ -602,7 +739,7 @@ public class My {
                 }
                 break;
             case 9://철의파동
-                if(energy>=2&&mydeck[1]==9||energy>=2&&mydeck[2]==9||energy>=2&&mydeck[3]==9||energy>=2&&mydeck[4]==9||energy>=2&&mydeck[0]==9) {
+                if(energy>=1&&mydeck[1]==9||energy>=1&&mydeck[2]==9||energy>=1&&mydeck[3]==9||energy>=1&&mydeck[4]==9||energy>=1&&mydeck[0]==9) {
                     //에너지가 충분하고, 내가 패에 카드를 가지고 있다면 실행
                     if(mydeck[1]==9){
                         mydeck[1]=0;
@@ -616,7 +753,6 @@ public class My {
                         mydeck[0]=0;
                     }
                     ///////반복시작
-                    int choice;
                     int inithp;
                     int atk;
                     if(power>0){
@@ -631,9 +767,45 @@ public class My {
 
                     if(x>=2) {//적이 둘 이상일때
                         while(true) {
+                            //while문 아래 시작
+                            int [] e_num=new int[4];
+                            int count;
+                            if(enemy.hp>0){
+                                e_num[0]=1;
+                            }else{
+                                e_num[0]=0;
+                            }
+                            if(enemy2.hp>0){
+                                e_num[1]=1;
+                            }else{
+                                e_num[1]=0;
+                            }
+                            if(enemy3.hp>0){
+                                e_num[2]=1;
+                            }else{
+                                e_num[2]=0;
+                            }
+                            if(enemy4.hp>0){
+                                e_num[3]=1;
+                            }else{
+                                e_num[3]=0;
+                            }
+                            int choice=0;
+                            int e_count;
                             System.out.println("몇 번 적을 공격하시겠습니까?");
                             Scanner scan = new Scanner(System.in);
-                            choice = scan.nextInt();
+                            e_count=scan.nextInt();
+
+                            for(int i=0; i<4; i++){
+                                if(e_num[i]!=0){
+                                    choice++;
+                                    if(choice==e_count){
+                                        choice=i+1;
+                                        break;
+                                    }
+                                }
+                            }
+                            //초이스 이프문 위에 마지막
 
 
                             if (choice == 1) {

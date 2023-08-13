@@ -14,6 +14,7 @@ public class Main {
         Dungeon1 dungeon1=new Dungeon1();
         Reward_1 reward_1=new Reward_1();
         Shop shop=new Shop();
+
        while(true) {
             System.out.println(
                     "██████╗  █████╗ ██╗   ██╗██╗██████╗      █████╗ ███╗   ██╗██████╗      ██████╗  ██████╗ ██╗     ██╗ █████╗ ████████╗██╗  ██╗\n" +
