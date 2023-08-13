@@ -44,8 +44,8 @@ public class Dungeon1 {
             enemy.hp=0;
             enemy2.fhp = 40;
             enemy2.hp = 40;
-            enemy3.fhp = 80;
-            enemy3.hp = 80;
+            enemy3.fhp = 60;
+            enemy3.hp = 60;
             enemy4.fhp = 0;
             enemy4.hp = 0;
             enemy.enemy_name[1]="하수구고블린";
@@ -61,8 +61,8 @@ public class Dungeon1 {
             enemy3.hp = 0;
             enemy2.fhp = 0;
             enemy2.hp = 0;
-            enemy4.fhp = 100;
-            enemy4.hp = 100;
+            enemy4.fhp = 80;
+            enemy4.hp = 80;
             enemy.enemy_name[3]="모르고스";
             System.out.println("\n" +
                     " ▄▀▀█▄▄   ▄▀▀▀▀▄   ▄▀▀▀▀▄  ▄▀▀▀▀▄      ▄▀▀▀▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄   ▄▀▀▀▀▄   ▄▀▀█▄▄▄▄ \n" +
@@ -186,6 +186,7 @@ public class Dungeon1 {
                     enemy4.atk_save = enemy4.enemypower();
                 }
                 System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
+                my.card_16_atk=savehp - my.hp;
             } else{//적이 죽엇으면
                 System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                         " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +

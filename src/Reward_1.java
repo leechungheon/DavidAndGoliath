@@ -17,7 +17,7 @@ public class Reward_1 {
             System.out.print("1.");
             //card1 내 카드에 없다면.
             while (true) {
-                card1 = (int) (Math.random() * 7) + 4;
+                card1 = (int) (Math.random() * 13) + 4;
                 int count = 0;
                 int i;
                 for (i = 0; i < 100; i++) {
@@ -39,7 +39,7 @@ public class Reward_1 {
 
             System.out.print("2.");
             while (true) {
-                card2 = (int) (Math.random() * 7) + 4;
+                card2 = (int) (Math.random() * 13) + 4;
                 if (card2 != card1) {
 
                     int count = 0;
@@ -69,7 +69,7 @@ public class Reward_1 {
 
             System.out.print("3.");
             while (true) {
-                card3 = (int) (Math.random() * 7) + 4;
+                card3 = (int) (Math.random() * 13) + 4;
                 if (card3 != card1 && card3 != card2) {
 
                     int count = 0;

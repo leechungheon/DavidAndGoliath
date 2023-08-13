@@ -39,7 +39,7 @@ public class Shop {
         }else{
             System.out.print("1.");
             while (true) {
-                card1 = (int) (Math.random() * 7) + 4;
+                card1 = (int) (Math.random() * 13) + 4;
                 int count = 0;
                 int i;
                 for (i = 0; i < 100; i++) {
@@ -57,7 +57,7 @@ public class Shop {
 
             System.out.print("2.");
             while (true) {
-                card2 = (int) (Math.random() * 7) + 4;
+                card2 = (int) (Math.random() * 13) + 4;
                 if (card2 != card1) {
 
                     int count = 0;
@@ -81,7 +81,7 @@ public class Shop {
 
             System.out.print("3.");
             while (true) {
-                card3 = (int) (Math.random() * 7) + 4;
+                card3 = (int) (Math.random() * 13) + 4;
                 if (card3 != card1 && card3 != card2) {
 
                     int count = 0;
@@ -119,7 +119,7 @@ public class Shop {
             shop_card(x,my);
             x++;
             System.out.println("4.『빵과 치즈』 : HP를 10 회복합니다.\n▶ 30 골드\n");
-            System.out.println("5.『카드 삭제 서비스』\n▶ 70 골드");
+            System.out.println("5.『카드 삭제 서비스』\n▶ 70 골드\n");
             System.out.println("6.『내 카드 보기』\n");
             System.out.println();
             System.out.println("0을 눌러 뒤로가기");

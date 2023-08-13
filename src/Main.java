@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         int select;
+        int gift_select;
         Tutorial tutorial=new Tutorial();
         Card_list cardlist=new Card_list();
         Artifact_list artifactlist=new Artifact_list();
@@ -27,7 +28,7 @@ public class Main {
                     "                                                                                                                            ");
         System.out.println("\n1.게 임 시 작");
         System.out.println("2.카 드 도 감");
-        System.out.println("3.유 물 도 감");
+        System.out.println("3.괴 물 도 감");
         System.out.println("4.종 료");
         Scanner scan= new Scanner(System.in);
         select=scan.nextInt();
@@ -53,6 +54,10 @@ public class Main {
                             if (my.hp > 0) {
                                 x = 4;
                                 dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//보스전 100(25~35)
+                                if(my.hp>0) {
+                                    story.story2();
+                                    gift_select = scan.nextInt();
+                                }
                             }
                         }
                     }
