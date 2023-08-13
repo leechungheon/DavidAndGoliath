@@ -47,6 +47,32 @@ public class Story {
         System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
         System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
     }
+    public void story4(My my){
+        System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+        System.out.println("다윗은 힘겹게 골리앗의 하수인들을 모두 물리쳤습니다.");
+        System.out.println("다윗은 골리앗이 오기 전에 빨리 정비를 하려고 합니다. 하지만, 저 멀리 있던 \'골리앗\'은 어느 새 코 앞까지 다가오고 말았습니다.");
+        System.out.println("다윗은 이제 선택해야 합니다.");
+        System.out.println();
+        System.out.println("1.칼을 갈기 : 공격력이 30% 증가합니다.\n");
+        System.out.printf("2.숨을 돌리기 : 잃은 체력의 절반을 회복합니다. (현재 체력(%d/%d))\n", my.fhp, my.hp);
+    }
+    public void story5(int x, My my){
+        String select="";
+        if(x==1)select="칼을 갈기";
+        if(x==2)select="숨을 돌리기";
+        System.out.printf("다윗은 %s로 했습니다. 시간이 없기에 다윗이 할 수 있는 최선의 선택이었습니다.", select);
+        System.out.println("이제 싸울 시간입니다.");
+        System.out.println();
+        System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
+        System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+    }
+
+    public void ending(){
+        System.out.println("마침내 다윗은 골리앗을 쓰러뜨렸습니다.");
+    }
+
+
+
 
 
 

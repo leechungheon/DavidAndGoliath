@@ -18,14 +18,6 @@ public class Dungeon1 {
             enemy2.fhp = 0;
             enemy2.hp = 0;
             enemy.enemy_name[0]="좀비";
-            System.out.println("\n" +
-                    " ██        ██ \n" +
-                    "███       ███ \n" +
-                    " ██ █████  ██ \n" +
-                    " ██        ██ \n" +
-                    " ██        ██ \n" +
-                    "              \n" +
-                    "              \n");
 
             my.mycard();//초기카드 선언
         }else if(x==2) {
@@ -87,6 +79,46 @@ public class Dungeon1 {
             enemy2.hp = 0;
             enemy.enemy_name[0]="허수아비";
             my.mycard();//초기카드 선언
+        }else if(x==5){
+            my.fhp=80;
+            my.hp=80;
+            enemy.fhp=30;
+            enemy.hp=30;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy3.fhp = 30;
+            enemy3.hp = 30;
+            enemy2.fhp = 30;
+            enemy2.hp = 30;
+            enemy.enemy_name[0]="엘프1";
+            enemy.enemy_name[1]="엘프2";
+            enemy.enemy_name[2]="엘프3";
+            //my.mycard();//초기카드 선언
+        }
+        else if(x==6){
+            enemy.fhp=40;
+            enemy.hp=40;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy3.fhp = 40;
+            enemy3.hp = 40;
+            enemy2.fhp = 40;
+            enemy2.hp = 40;
+            enemy.enemy_name[0]="도깨비1";
+            enemy.enemy_name[1]="도깨비2";
+            enemy.enemy_name[2]="도깨비3";
+            //my.mycard();//초기카드 선언
+        }else if(x==7){
+            enemy.fhp=100;
+            enemy.hp=100;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy3.fhp = 0;
+            enemy3.hp = 0;
+            enemy2.fhp = 0;
+            enemy2.hp = 0;
+            enemy.enemy_name[0]="골리앗";
+            //my.mycard();//초기카드 선언
         }
 
         //출력
@@ -112,10 +144,34 @@ public class Dungeon1 {
                 else if(x==4){
                     if(enemy4.hp>0){
                         System.out.printf("\uD83D\uDC32(\uD83D\uDD2A: %d)", enemy4.atk_save);}
-                }else if(x==0){
+                }else if(x==0){//tutorial 미완성
                     if(enemy.hp>0){
                         System.out.printf("\uD83D\uDC07(\uD83D\uDD2A: %d)", enemy4.atk_save);}
+                }else if(x==5){
+                    if(enemy.hp>0){
+                        System.out.printf("\uD83E\uDDDD(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
                     }
+                    if(enemy2.hp>0){
+                        System.out.printf("\uD83E\uDDDD(\uD83D\uDD2A: %d)    \t\t ", enemy2.atk_save);
+                    }
+                    if(enemy3.hp>0){
+                        System.out.printf("\uD83E\uDDDD(\uD83D\uDD2A: %d)", enemy3.atk_save);
+                    }
+                }else if(x==6){
+                    if(enemy.hp>0){
+                        System.out.printf("\uD83D\uDC79(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
+                    }
+                    if(enemy2.hp>0){
+                        System.out.printf("\uD83D\uDC79(\uD83D\uDD2A: %d)    \t\t ", enemy2.atk_save);
+                    }
+                    if(enemy3.hp>0){
+                        System.out.printf("\uD83D\uDC79(\uD83D\uDD2A: %d)", enemy3.atk_save);
+                    }
+                }else if(x==7){
+                    if(enemy.hp>0){
+                        System.out.printf("goliath interface(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
+                    }
+                }
                 System.out.println();
                 //내 체력바 출력
                 my.myhp();
@@ -143,13 +199,37 @@ public class Dungeon1 {
                     if(enemy4.hp>0) {
                         enemy4.enemyhp();
                     }
-                }else if(x==0){
-                    if(enemy.hp>0) {
+                }else if(x==0) {
+                    if (enemy.hp > 0) {
+                        enemy.enemyhp();
+                    }
+                }else if(x==5){
+                    if (enemy.hp > 0) {
+                        enemy.enemyhp();
+                    }
+                    if (enemy2.hp > 0) {
+                        enemy2.enemyhp();
+                    }
+                    if (enemy3.hp > 0) {
+                        enemy3.enemyhp();
+                    }
+                }else if(x==6){
+                    if (enemy.hp > 0) {
+                        enemy.enemyhp();
+                    }
+                    if (enemy2.hp > 0) {
+                        enemy2.enemyhp();
+                    }
+                    if (enemy3.hp > 0) {
+                        enemy3.enemyhp();
+                    }
+                }else if(x==7){
+                    if(enemy.hp>0){
                         enemy.enemyhp();
                     }
                 }
                 System.out.println("\n==============================================================================");
-                System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d/3】\n\n", my.energy);
+                System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d】\n\n", my.energy);
                 //내 카드 출력 마이턴.
                 my.mydeck(select);
                 /*
@@ -187,7 +267,7 @@ public class Dungeon1 {
                 }
                 System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
                 my.card_16_atk=savehp - my.hp;
-            } else{//적이 죽엇으면
+            } else{//적이 죽었으면
                 System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                         " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                         "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
