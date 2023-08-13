@@ -11,10 +11,7 @@ public class Enemy {
          atk = (int) (Math.random() * 11) + 10;
         return atk;
     }
-    public int bosspower() {//적 다음턴 공격력 랜덤 출력
-        atk = (int) (Math.random() * 11) + 25;
-        return atk;
-    }
+
     int atk_save = enemypower();
     public void enemyhp(){//적 체력바 출력
         for(int i=0; i<15-15*hp/fhp; i++){

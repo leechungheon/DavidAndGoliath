@@ -14,6 +14,7 @@ public class Main {
         Dungeon1 dungeon1=new Dungeon1();
         Reward_1 reward_1=new Reward_1();
         Shop shop=new Shop();
+        Story story=new Story();
 
        while(true) {
             System.out.println(
@@ -32,30 +33,43 @@ public class Main {
         select=scan.nextInt();
 
             if (select == 1) {
+                story.story();
                 System.out.println("튜토리얼을 진행하시겠습니까?");
                 System.out.println("1.네");
                 System.out.println("2.아 니 요");
                 select = scan.nextInt();
                 if (select == 1) {
-                    tutorial.tuTorial();
-                } else {
-                    int x=1;//enemy number
-                    dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40
-                    if(my.hp>0) {
+                    dungeon1.dunGeon1(0, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40
+                }
+                if(select==1||select==2) {
+                    int x = 1;//enemy number
+                    dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40
+                    if (my.hp > 0) {
                         x = 2;
                         dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//30,70
-                        if(my.hp>0){
-                            x=3;
-                            dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//40 80
-                            if(my.hp>0){
-                                x=4;
-                                dungeon1.dunGeon1(x,my,enemy,enemy2, enemy3,enemy4,reward_1,cardlist,shop);//보스전 100(25~35)
+                        if (my.hp > 0) {
+                            x = 3;
+                            dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40 80
+                            if (my.hp > 0) {
+                                x = 4;
+                                dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//보스전 100(25~35)
                             }
                         }
                     }
                 }
-            } else if (select == 2) {
 
+            } else if (select == 2) {
+                int select2;
+                for(int i=1; i<=10; i++) {
+                    my.card_destription(i);
+                }
+                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
+                while(true) {
+                    select2 = scan.nextInt();
+                    if (select2 == 0) {
+                        break;
+                    }
+                }
             } else if (select == 3) {
                 artifactlist.artifactList();
 

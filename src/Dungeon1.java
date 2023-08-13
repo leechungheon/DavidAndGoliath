@@ -18,6 +18,14 @@ public class Dungeon1 {
             enemy2.fhp = 0;
             enemy2.hp = 0;
             enemy.enemy_name[0]="좀비";
+            System.out.println("\n" +
+                    " ██        ██ \n" +
+                    "███       ███ \n" +
+                    " ██ █████  ██ \n" +
+                    " ██        ██ \n" +
+                    " ██        ██ \n" +
+                    "              \n" +
+                    "              \n");
 
             my.mycard();//초기카드 선언
         }else if(x==2) {
@@ -66,6 +74,19 @@ public class Dungeon1 {
                     "▐                                             ▐                           ▐        \n");
 
            // my.mycard();//초기카드 선언
+        }else if(x==0){//tutorial
+            my.fhp=80;
+            my.hp=80;
+            enemy.fhp=30;
+            enemy.hp=30;
+            enemy4.fhp = 0;
+            enemy4.hp = 0;
+            enemy3.fhp = 0;
+            enemy3.hp = 0;
+            enemy2.fhp = 0;
+            enemy2.hp = 0;
+            enemy.enemy_name[0]="허수아비";
+            my.mycard();//초기카드 선언
         }
 
         //출력
@@ -91,7 +112,10 @@ public class Dungeon1 {
                 else if(x==4){
                     if(enemy4.hp>0){
                         System.out.printf("\uD83D\uDC32(\uD83D\uDD2A: %d)", enemy4.atk_save);}
-                }
+                }else if(x==0){
+                    if(enemy.hp>0){
+                        System.out.printf("\uD83D\uDC07(\uD83D\uDD2A: %d)", enemy4.atk_save);}
+                    }
                 System.out.println();
                 //내 체력바 출력
                 my.myhp();
@@ -118,6 +142,10 @@ public class Dungeon1 {
                 else if(x==4){
                     if(enemy4.hp>0) {
                         enemy4.enemyhp();
+                    }
+                }else if(x==0){
+                    if(enemy.hp>0) {
+                        enemy.enemyhp();
                     }
                 }
                 System.out.println("\n==============================================================================");

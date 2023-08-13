@@ -118,8 +118,9 @@ public class Shop {
             System.out.println("*********************************************************************");
             shop_card(x,my);
             x++;
-            System.out.println("4.『HP 10회복』\n▶ 30 골드\n");
-            System.out.println("5.『카드 제거 서비스』\n▶ 70 골드");
+            System.out.println("4.『빵과 치즈』 : HP를 10 회복합니다.\n▶ 30 골드\n");
+            System.out.println("5.『카드 삭제 서비스』\n▶ 70 골드");
+            System.out.println("6.『내 카드 보기』\n");
             System.out.println();
             System.out.println("0을 눌러 뒤로가기");
             System.out.println("*********************************************************************");
@@ -201,7 +202,7 @@ public class Shop {
             } else if (select1 == 5) {
                 if(my.gold>=70){
                 //조건문 돈이 충분하다면//카드가 5장 이상이라면
-                System.out.println("몇 번 카드를 제거하시겠습니까?");
+                System.out.println("몇 번 카드를 제거하시겠습니까?\n");
                 for(int i=0; i<100; i++){
                     my.card_destription(my.mycard_y[i]);
                 }
@@ -217,6 +218,21 @@ public class Shop {
                     System.out.println("골드가 부족합니다.\n");
                 }
                 //돈이 충분하지않다면
+            } else if (select1 == 6) {
+                while(true) {
+                    for (int i = 0; i < 100; i++) {
+                        my.card_destription(my.mycard_y[i]);
+                    }
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
+                    int select;
+                    select = scan.nextInt();
+                    if (select == 0) {
+                        break;
+                    } else {
+                        System.out.println("잘못 입력된 값입니다.");
+                    }
+                }
+
             } else if (select1 == 0) {
                 break;
 
