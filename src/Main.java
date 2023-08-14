@@ -16,6 +16,7 @@ public class Main {
         Reward_1 reward_1=new Reward_1();
         Shop shop=new Shop();
         Story story=new Story();
+        Gift gift=new Gift();
 
        while(true) {
             System.out.println(
@@ -58,6 +59,13 @@ public class Main {
                                     story.story2();
                                     story_select = scan.nextInt();
                                     story.story3(story_select);
+                                    if(story_select==1){//아드레날린:영구적으로 다윗의 에너지가 4가 됩니다.
+                                        gift.gift(1);
+                                    }else if(story_select==2){
+                                        gift.gift(2);
+                                    }else if(story_select==3){
+                                        gift.gift(3);
+                                    }
                                     x=5;
                                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//2-1 3마리 30.30.30.
                                     if(my.hp>0){
@@ -66,6 +74,13 @@ public class Main {
                                         if(my.hp>0){
                                             story.story4(my);
                                             story_select = scan.nextInt();
+                                            while(story_select==1||story_select==2) {
+                                                if (story_select == 1) {//잃은 체력의 절반을 회복
+                                                    gift.gift2(1);
+                                                } else if (story_select == 2) {
+                                                    gift.gift2(2);
+                                                }
+                                            }
                                             story.story5(story_select,my);
                                             x=7;
                                             dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//골리앗

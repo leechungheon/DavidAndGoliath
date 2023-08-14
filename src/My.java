@@ -7,6 +7,9 @@ public class My {
     int energy;
     int power;//취약시 30%데미지 추가
     int card_16_atk;
+    int gift1;
+    int gift2;
+    int gift3;
 
     int[] mycard=new int[101];//내 소유 전체 카드
     int[] mycard_y=new int[101];//빈공간 제외한 내 카드
@@ -1036,7 +1039,7 @@ public class My {
                                 enemy.hp -= atk;
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[0], atk);
-                                if(enemy.hp<0){
+                                if(enemy.hp<=0){
                                     System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
                                     hp+=10;
                                 }
@@ -1046,7 +1049,7 @@ public class My {
                                 enemy2.hp -= atk;
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[1], atk);
-                                if(enemy2.hp<0){
+                                if(enemy2.hp<=0){
                                     System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
                                     hp+=10;
                                 }
@@ -1056,7 +1059,7 @@ public class My {
                                 enemy3.hp -= atk;
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[2], atk);
-                                if(enemy3.hp<0){
+                                if(enemy3.hp<=0){
                                     System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
                                     hp+=10;
                                 }
@@ -1066,7 +1069,7 @@ public class My {
                                 enemy4.hp -= atk;
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[3], atk);
-                                if(enemy4.hp<0){
+                                if(enemy4.hp<=0){
                                     System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
                                     hp+=10;
                                 }

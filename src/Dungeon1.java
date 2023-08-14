@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Dungeon1 {
+public class Dungeon1 extends Gift{
     public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
 
         int select=0;
@@ -137,8 +137,21 @@ public class Dungeon1 {
 
         //출력
         do {
+            if(gift1==1){
+                my.energy=4;
+            }else{
             my.energy=3;
-            my.defend=0;
+            }
+            if (gift2 == 2) {
+                my.defend=10;
+            }else{
+                my.defend=0;
+            }
+            if(gift3==3){
+                my.hp+=5;
+            }else{
+            }
+
             System.out.println("\n\n\n\n");
             do {
                 System.out.printf("\uD83E\uDDCD                                                                    ");
@@ -183,7 +196,7 @@ public class Dungeon1 {
                     }
                 }else if(x==7){
                     if(enemy.hp>0){
-                        System.out.printf("goliath interface(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
+                        System.out.printf("goliath (\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
                     }
                 }
                 System.out.println();
@@ -308,7 +321,9 @@ public class Dungeon1 {
                     }
                 }
                 //상점으로 갈래? 싸우러갈래?
-                shop.shop_choice(reward1, my, card_list);
+                if(x!=4&&x!=6) {//보스전, 골리앗 전 때 상점 안나옴
+                    shop.shop_choice(reward1, my, card_list);
+                }
                 //상점 카드 버리기, 카드 구매, hp회복 기능
                 //이벤트 확률적으로 출현
             }

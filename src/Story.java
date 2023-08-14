@@ -28,7 +28,7 @@ public class Story {
         System.out.println("선물을 선택하십시오\n");
         System.out.println("1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.");
         System.out.println("2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.");
-        System.out.println("3.붉은 스카프 : 적 턴이 시작되기 전 HP를 5씩 회복합니다.\n");
+        System.out.println("3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.\n");
         System.out.println("(선물의 효과는 영구적이고 버릴 수 없습니다.)");
 
     }

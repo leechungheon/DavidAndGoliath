@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Shop {
+public class Shop extends Reward_1{
     int card1, card2, card3;
     int gold1, gold2, gold3;
     int x;
