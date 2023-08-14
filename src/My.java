@@ -114,7 +114,7 @@ public class My {
                 System.out.printf("【12번 카드】 지옥불⑵: 덱의 카드를 전부 소멸시키고 소멸시킨 카드 당 7의 데미지를 준다.\n");
                 break;
             case 13:
-                System.out.printf("【13번 카드】 참호⑵: 방어도가 2배로 증가한다.\n");
+                System.out.printf("【13번 카드】 참호⑴: 방어도가 2배로 증가한다.\n");
                 break;
             case 14:
                 System.out.printf("【14번 카드】 충격파⑵: 적 전체에게 약화와 취약 3을 부여한다.\n");
@@ -1294,7 +1294,7 @@ public class My {
                     }
 
                     defend+=10;
-                    energy-=2;
+                    energy--;
 
                     System.out.printf("\n\t\t\t\t\t\t 『+10 방어력을 얻었습니다.』\n\n\n\n");
                 }else if(mydeck[1]==15||mydeck[2]==15||mydeck[3]==15||mydeck[4]==15||mydeck[0]==15){

@@ -74,11 +74,13 @@ public class Main {
                                         if(my.hp>0){
                                             story.story4(my);
                                             story_select = scan.nextInt();
-                                            while(story_select==1||story_select==2) {
+                                            while(true) {
                                                 if (story_select == 1) {//잃은 체력의 절반을 회복
                                                     gift.gift2(1);
+                                                    break;
                                                 } else if (story_select == 2) {
                                                     gift.gift2(2);
+                                                    break;
                                                 }
                                             }
                                             story.story5(story_select,my);

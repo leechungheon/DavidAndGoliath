@@ -8,7 +8,7 @@ public class Dungeon1 extends Gift{
 
         if (x == 1) {
             my.fhp=80;
-            my.hp=80;
+            my.hp=9990;
             enemy.fhp=40;
             enemy.hp=40;
             enemy4.fhp = 0;

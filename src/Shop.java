@@ -217,9 +217,15 @@ public class Shop extends Reward_1{
                 }}else if(my.gold<70){
                     System.out.println("골드가 부족합니다.\n");
                 }
-                //돈이 충분하지않다면
             } else if (select1 == 6) {
                 while(true) {
+                    int count=0;
+                    for(int i=0; i<100; i++){//존재하는 카드들만 추출 &사이 버퍼 없애기
+                        if(my.mycard[i]!=0){//마이카드에 카드가 있다면
+                            my.mycard_y[count]=my.mycard[i];
+                            count++;
+                        }
+                    }
                     for (int i = 0; i < 100; i++) {
                         my.card_destription(my.mycard_y[i]);
                     }
