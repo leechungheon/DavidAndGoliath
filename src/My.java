@@ -72,7 +72,7 @@ public class My {
         for (int i = 0; i < 100; i++) {
             mycard_y[i]=0;
         }
-        System.out.println();
+        System.out.println();/
     }
     public void card_destription(int x){//덱
         switch(x){

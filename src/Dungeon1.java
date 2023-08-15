@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Dungeon1 extends Gift{
-    public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Card_list card_list, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
+    public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
 
         int select=0;
         Scanner scan= new Scanner(System.in);
@@ -304,7 +304,7 @@ public class Dungeon1 extends Gift{
                         " ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝\n" +
                         "                                              \n");
                 //보상얻기
-                reward1.reward(1, my,card_list);//골드받고 카드 3중 1 선택// 정수값 1 받으면 골드 및 선택 문구 출력
+                reward1.reward(1, my);//골드받고 카드 3중 1 선택// 정수값 1 받으면 골드 및 선택 문구 출력
                 while(true) {
                     select = scan.nextInt();
                     if (select == 1) {
@@ -322,7 +322,7 @@ public class Dungeon1 extends Gift{
                 }
                 //상점으로 갈래? 싸우러갈래?
                 if(x!=4&&x!=6) {//보스전, 골리앗 전 때 상점 안나옴
-                    shop.shop_choice(reward1, my, card_list);
+                    shop.shop_choice(reward1, my);
                 }
                 //상점 카드 버리기, 카드 구매, hp회복 기능
                 //이벤트 확률적으로 출현

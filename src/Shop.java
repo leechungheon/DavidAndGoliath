@@ -1,9 +1,8 @@
 import java.util.Scanner;
 public class Shop extends Reward_1{
-    int card1, card2, card3;
-    int gold1, gold2, gold3;
+
     int x;
-    public void shop_choice(Reward_1 reward1, My my, Card_list card_list) {
+    public void shop_choice(Reward_1 reward1, My my) {
 
         int select;
         while(true) {
@@ -13,7 +12,7 @@ public class Shop extends Reward_1{
 
             select = scan.nextInt();
             if (select == 1) {
-                shop(reward1, my, card_list);
+                shop(reward1, my);
                 x++;//카드 구매후 카드 랜덤 출력되는 문제 수정
 
             } else if (select == 2) {
@@ -108,7 +107,7 @@ public class Shop extends Reward_1{
 
 
 
-    public void shop(Reward_1 reward1, My my, Card_list card_list){
+    public void shop(Reward_1 reward1, My my){
         int select1;
         do {
             System.out.printf("\n" +

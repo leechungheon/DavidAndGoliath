@@ -2,7 +2,7 @@ public class Reward_1  {
     int card1, card2, card3;
     int gold1, gold2, gold3;
 
-    public void reward(int x, My my, Card_list card_list) {//정수 값 1 받으면 리워드//0받으면 상점//0보다 작아지면 고정
+    public void reward(int x, My my) {//정수 값 1 받으면 리워드//0받으면 상점//0보다 작아지면 고정
         card1 = 0;
         card2 = 0;
         card3 = 0;

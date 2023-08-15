@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        int select;
-        int story_select;
         Tutorial tutorial=new Tutorial();
         Card_list cardlist=new Card_list();
         Artifact_list artifactlist=new Artifact_list();
@@ -31,6 +29,8 @@ public class Main {
         System.out.println("2.카 드 도 감");
         System.out.println("3.괴 물 도 감");
         System.out.println("4.종 료");
+        int select;
+        int story_select;
         Scanner scan= new Scanner(System.in);
         select=scan.nextInt();
 
@@ -41,20 +41,20 @@ public class Main {
                 System.out.println("2.아 니 요");
                 select = scan.nextInt();
                 if (select == 1) {
-                    dungeon1.dunGeon1(0, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40
+                    dungeon1.dunGeon1(0, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//40
                 }
                 if(select==1||select==2) {
                     int x = 1;//enemy number
-                    dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40
+                    dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//40
                     if (my.hp > 0) {
                         x = 2;
-                        dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//30,70
+                        dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//30,70
                         if (my.hp > 0) {
                             x = 3;
-                            dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//40 80
+                            dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//40 80
                             if (my.hp > 0) {
                                 x = 4;
-                                dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//보스전 100(25~35)
+                                dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//보스전 100(25~35)
                                 if(my.hp>0) {
                                     story.story2();
                                     story_select = scan.nextInt();
@@ -67,10 +67,10 @@ public class Main {
                                         gift.gift(3);
                                     }
                                     x=5;
-                                    dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//2-1 3마리 30.30.30.
+                                    dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//2-1 3마리 30.30.30.
                                     if(my.hp>0){
                                         x=6;
-                                        dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//2-2 3마리 40 40 40
+                                        dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//2-2 3마리 40 40 40
                                         if(my.hp>0){
                                             story.story4(my);
                                             story_select = scan.nextInt();
@@ -85,7 +85,7 @@ public class Main {
                                             }
                                             story.story5(story_select,my);
                                             x=7;
-                                            dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, cardlist, shop);//골리앗
+                                            dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//골리앗
                                             if(my.hp>0){
                                                 story.ending();
                                             }
