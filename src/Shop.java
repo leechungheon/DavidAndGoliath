@@ -113,7 +113,7 @@ public class Shop extends Reward_1{
             System.out.printf("\n" +
                     "\t\t\t\t\t\t╔═╗╦ ╦╔═╗╔═╗\n" +
                     "\t\t\t\t\t\t╚═╗╠═╣║ ║╠═╝\n" +
-                    "\t\t\t\t\t\t╚═╝╩ ╩╚═╝╩  \n남은 골드:%d\t\t\t\t\t\t\t\t\t\t\t남은 체력:(%d/%d)\n", my.gold, my.fhp,my.hp);
+                    "\t\t\t\t\t\t╚═╝╩ ╩╚═╝╩  \n남은 골드:%d\t\t\t\t\t\t\t\t\t\t\t남은 체력:(%d/%d)\n", my.gold, my.hp,my.fhp);
             System.out.println("*********************************************************************");
             shop_card(x,my);
             x++;
@@ -190,12 +190,19 @@ public class Shop extends Reward_1{
                 }
 
             } else if (select1 == 4) {
-                if(my.gold>=30) {
+                if(my.gold>=30&&my.hp<80) {
                     System.out.println("체력이 10 회복되었습니다.\n");
-                    my.hp += 10;
+                    if(my.hp<=70){
+                        my.hp += 10;
+                    }else{
+                        my.hp=80;
+                    }
                     my.gold -= 30;
                     System.out.printf("현재 체력 : %d/%d\n", my.hp, my.fhp);
-                }else{
+                }else if(my.hp==80){
+                    System.out.println("체력이 최대치 입니다.\n");
+                }
+                else{
                     System.out.println("골드가 부족합니다.\n");
                 }
             } else if (select1 == 5) {

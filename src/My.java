@@ -72,7 +72,7 @@ public class My {
         for (int i = 0; i < 100; i++) {
             mycard_y[i]=0;
         }
-        System.out.println();/
+        System.out.println();
     }
     public void card_destription(int x){//덱
         switch(x){
@@ -1040,8 +1040,13 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[0], atk);
                                 if(enemy.hp<=0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
-                                    hp+=10;
+                                    if(hp<=70) {
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                        hp += 10;
+                                    }else if(hp>70){
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 %d 회복합니다.』\n\n\n\n", fhp-hp);
+                                        hp = 80;
+                                    }
                                 }
                                 break;
                             } else if (choice == 2) {
@@ -1050,8 +1055,13 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[1], atk);
                                 if(enemy2.hp<=0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
-                                    hp+=10;
+                                    if(hp<=70) {
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                        hp += 10;
+                                    }else if(hp>70){
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 %d 회복합니다.』\n\n\n\n", fhp-hp);
+                                        hp = 80;
+                                    }
                                 }
                                 break;
                             } else if (choice == 3 && x >= 3) {
@@ -1060,8 +1070,13 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[2], atk);
                                 if(enemy3.hp<=0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
-                                    hp+=10;
+                                    if(hp<=70) {
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                        hp += 10;
+                                    }else if(hp>70){
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 %d 회복합니다.』\n\n\n\n", fhp-hp);
+                                        hp = 80;
+                                    }
                                 }
                                 break;
                             } else if (choice == 4 && x >= 4) {
@@ -1070,8 +1085,13 @@ public class My {
                                 energy--;
                                 System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n", enemy.enemy_name[3], atk);
                                 if(enemy4.hp<=0){
-                                    System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
-                                    hp+=10;
+                                    if(hp<=70) {
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 10 회복합니다.』\n\n\n\n");
+                                        hp += 10;
+                                    }else if(hp>70){
+                                        System.out.printf("\n\t\t\t\t\t\t 『체력을 %d 회복합니다.』\n\n\n\n", fhp-hp);
+                                        hp = 80;
+                                    }
                                 }
                                 break;
                             } else {
@@ -1251,7 +1271,7 @@ public class My {
                 }
                 break;
             case 14://충격파
-                if(energy>=2&&mydeck[1]==14||energy>=2&&mydeck[2]==14||energy>=2&&mydeck[3]==14||energy>=2&&mydeck[4]==14|energy>=2&&mydeck[0]==14) {
+                if(energy>=2&&mydeck[1]==14||energy>=2&&mydeck[2]==14||energy>=2&&mydeck[3]==14||energy>=2&&mydeck[4]==14||energy>=2&&mydeck[0]==14) {
                     if(mydeck[1]==14){
                         mydeck[1]=0;
                     }else if(mydeck[2]==14){
@@ -1269,6 +1289,7 @@ public class My {
                     enemy3.weak +=3;
                     enemy4.weak +=3;
                     power+=3;
+                    energy-=2;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 약화+3 와 취약+3 을 부여했습니다.』\n\n\n\n");
                 }else if(mydeck[1]==14||mydeck[2]==14||mydeck[3]==14||mydeck[4]==14||mydeck[0]==14){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
