@@ -1327,7 +1327,7 @@ public class My {
                 }
 
                 break;
-            case 16://타격
+            case 16://무지개반사
                 if(energy>=2&&mydeck[1]==16||energy>=2&&mydeck[2]==16||energy>=2&&mydeck[3]==16||energy>=2&&mydeck[4]==16||energy>=2&&mydeck[0]==16) {
                     //에너지가 충분하고, 내가 패에 카드를 가지고 있다면 실행
                     if(mydeck[1]==16){

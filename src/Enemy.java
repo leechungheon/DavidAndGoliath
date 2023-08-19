@@ -30,9 +30,11 @@ public class Enemy {
             }
             weak--;
         }else{
-            if (atk_save < my.defend) {
-            } else {
+            if (atk_save < my.defend) {//적 공격력보다 내 방어력이 더 크면
+                my.defend=my.defend-atk_save;
+            } else {//내 방어력이 더 적으면
                 my.hp -= atk_save - my.defend;
+                my.defend=0;
             }
         }
     }

@@ -258,7 +258,7 @@ public class Dungeon1 extends Gift{
                 System.out.println("\n==============================================================================");
                 System.out.printf("\n\t\t\t\t\t\t\t\t【에너지:%d】\n\n", my.energy);
                 //내 카드 출력 마이턴.
-                my.mydeck(select);
+                my.mydeck(select); //패를 새로 뽑음. select 가 0 이어서
                 /*
                 for(int i=0; i<100; i++) {
                     System.out.print(my.mycard[i]);
@@ -274,7 +274,7 @@ public class Dungeon1 extends Gift{
                 my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4);
             } while (select != 0&&enemy.hp>0||select != 0&&enemy2.hp>0||select != 0&&enemy3.hp>0||select != 0&&enemy4.hp>0);
             //적 공격후 상황 출력
-            int savehp=my.hp;
+            int savehp=my.hp;//일단 내 초기 체력 저장해놓음.
             if(enemy.hp>0||enemy2.hp>0||enemy3.hp>0||enemy4.hp>0) {
                 if (enemy.hp > 0) {//적이 살앗으면 나에게 공격
                     enemy.enemyatk(my);
@@ -295,6 +295,7 @@ public class Dungeon1 extends Gift{
                 System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
                 my.card_16_atk=savehp - my.hp;
             } else{//적이 죽었으면
+                my.card_16_atk=0;
                 System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                         " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                         "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
@@ -328,6 +329,7 @@ public class Dungeon1 extends Gift{
                 //이벤트 확률적으로 출현
             }
             if(my.hp<0){//내가 죽엇으면
+                my.card_16_atk=0;
                 System.out.println("\n\n" +
                         " ██████╗  █████╗ ███╗   ███╗███████╗ ██████╗ ██╗   ██╗███████╗██████╗ \n" +
                         "██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" +
