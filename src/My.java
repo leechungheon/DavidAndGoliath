@@ -10,6 +10,7 @@ public class My {
     int gift1;
     int gift2;
     int gift3;
+    int gift2_1=3;
 
     int[] mycard=new int[101];//내 소유 전체 카드
     int[] mycard_y=new int[101];//빈공간 제외한 내 카드
@@ -1450,6 +1451,12 @@ public class My {
                     power--;
                 }
 
+                break;
+            case 999 :
+                enemy.hp=0;
+                enemy2.hp=0;
+                enemy3.hp=0;
+                enemy4.hp=0;
                 break;
             default:
                 System.out.println("존재하지 않는 카드");

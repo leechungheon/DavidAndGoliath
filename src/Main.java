@@ -2,9 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        Tutorial tutorial=new Tutorial();
         Card_list cardlist=new Card_list();
-        Artifact_list artifactlist=new Artifact_list();
         My my=new My();
         Enemy enemy=new Enemy();
         Enemy enemy2=new Enemy();
@@ -27,7 +25,7 @@ public class Main {
                     "                                                                                                                            ");
         System.out.println("\n1.게 임 시 작");
         System.out.println("2.카 드 도 감");
-        System.out.println("3.괴 물 도 감");
+        System.out.println("3.선 물 도 감");
         System.out.println("4.종 료");
         int select;
         int story_select;
@@ -35,7 +33,6 @@ public class Main {
         select=scan.nextInt();
 
             if (select == 1) {
-                story.story();
                 System.out.println("튜토리얼을 진행하시겠습니까?");
                 System.out.println("1.네");
                 System.out.println("2.아 니 요");
@@ -44,6 +41,7 @@ public class Main {
                     dungeon1.dunGeon1(0, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//40
                 }
                 if(select==1||select==2) {
+                    story.story();
                     int x = 1;//enemy number
                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//40
                     if (my.hp > 0) {
@@ -58,13 +56,13 @@ public class Main {
                                 if(my.hp>0) {
                                     story.story2();
                                     story_select = scan.nextInt();
-                                    story.story3(story_select);
+                                    story.story3(my,story_select);
                                     if(story_select==1){//아드레날린:영구적으로 다윗의 에너지가 4가 됩니다.
-                                        gift.gift(1);
+                                        gift.gift(my,1);
                                     }else if(story_select==2){
-                                        gift.gift(2);
+                                        gift.gift(my,2);
                                     }else if(story_select==3){
-                                        gift.gift(3);
+                                        gift.gift(my,3);
                                     }
                                     x=5;
                                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop);//2-1 3마리 30.30.30.
@@ -75,11 +73,11 @@ public class Main {
                                             story.story4(my);
                                             story_select = scan.nextInt();
                                             while(true) {
-                                                if (story_select == 1) {//잃은 체력의 절반을 회복
-                                                    gift.gift2(1);
+                                                if (story_select == 1) {//2턴 동안 받는 피해가 0
+                                                    gift.gift2(my,1);
                                                     break;
-                                                } else if (story_select == 2) {
-                                                    gift.gift2(2);
+                                                } else if (story_select == 2) {//체력 모두 회복
+                                                    gift.gift2(my,2);
                                                     break;
                                                 }
                                             }
@@ -99,7 +97,7 @@ public class Main {
 
             } else if (select == 2) {
                 int select2;
-                for(int i=1; i<=10; i++) {
+                for(int i=1; i<=15; i++) {
                     my.card_destription(i);
                 }
                 System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
@@ -110,7 +108,20 @@ public class Main {
                     }
                 }
             } else if (select == 3) {
-                artifactlist.artifactList();
+                while(true) {
+                    System.out.println("1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.");
+                    System.out.println("2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.");
+                    System.out.println("3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.");
+                    System.out.println("4.황금갑옷 : 2턴 동안 방어도가 999가 됩니다.");
+                    System.out.println("5.빨간포션 : 잃은 체력을 모두 회복합니다.");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
+                    select = scan.nextInt();
+                    if(select==0){
+                        break;
+                    }
+                }
+
 
             } else if(select==4) {
 

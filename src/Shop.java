@@ -195,8 +195,8 @@ public class Shop extends Reward_1{
                         my.hp += 10;
                         System.out.println("체력이 10 회복되었습니다.\n");
                     }else{
-                        my.hp=80;
                         System.out.printf("체력이 %d 회복되었습니다.\n\n", my.fhp-my.hp);
+                        my.hp=80;
                     }
                     my.gold -= 30;
                     System.out.printf("현재 체력 : %d/%d\n", my.hp, my.fhp);
