@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Shop extends Reward_1{
 
     int x;
-    public void shop_choice(Reward_1 reward1, My my) {
+    public void shop_choice(Reward_1 reward1, My my, Bgm bgm) {
 
         int select;
         while(true) {
@@ -12,7 +12,7 @@ public class Shop extends Reward_1{
 
             select = scan.nextInt();
             if (select == 1) {
-                shop(reward1, my);
+                shop(reward1, my, bgm);
                 x++;//카드 구매후 카드 랜덤 출력되는 문제 수정
 
             } else if (select == 2) {
@@ -107,9 +107,10 @@ public class Shop extends Reward_1{
 
 
 
-    public void shop(Reward_1 reward1, My my){
+    public void shop(Reward_1 reward1, My my, Bgm bgm){
         int select1;
         do {
+            bgm.bgm(2);
             System.out.printf("\n" +
                     "\t\t\t\t\t\t╔═╗╦ ╦╔═╗╔═╗\n" +
                     "\t\t\t\t\t\t╚═╗╠═╣║ ║╠═╝\n" +
@@ -253,7 +254,7 @@ public class Shop extends Reward_1{
                 System.out.println("잘못 입력된 값입니다.");
             }
         }while(select1!=0);
-
+            bgm.stopBgm();
     }
 
 }

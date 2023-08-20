@@ -1,5 +1,32 @@
-public class Story {
+public class Story extends Thread{
+    int msg_num;
+    public void run() {//run 메소드
+        if(msg_num==0) {
+            String sentence = "그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .";
+            for (char c : sentence.toCharArray()) {
+                System.out.print(c);
+                try {
+                    Thread.sleep(100); // 글자 출력 후 잠시 멈춤
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else if(msg_num==1){
+            String sentence = "1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.\n2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.\n3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.\n";
+            for (char c : sentence.toCharArray()) {
+                System.out.print(c);
+                try {
+                    Thread.sleep(100); // 글자 출력 후 잠시 멈춤
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
     public void story(){
+        Story th1 = new Story();
         System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
         System.out.println("엘라라는 신비한 땅에 무서운 거인 \'골리앗\'이 이끄는 \'블레셋족\'들이 있었습니다.");
         System.out.println("\'블레셋족\'은 엘라의 또 다른 백성들인 \'이스라엘 백성\'들이 엘라에 도움이 되지 못한다고 생각했습니다. ");
@@ -12,8 +39,14 @@ public class Story {
         System.out.println("그리고 당당한 갑옷을 입고 거대한 검을 휘두르는 \'골리앗\'이 블레셋 군대의 후미에 서 있습니다.");
         System.out.println("반대편에는 나무 막대기와 가죽갑옷으로 무장한 \'다윗\'이 \'이스라엘 사람\'의 예상치 못한 챔피언으로 서 있습니다.\n");
         System.out.println();
-        System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
-        System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+        msg_num=0;
+        th1.start();//System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
+        try {
+            th1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
     }
     public void story2(){
         System.out.println("\n\n\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
@@ -26,13 +59,19 @@ public class Story {
         System.out.println("하지만 다윗은 모두 들고 갈 수 없어 하나의 선물만을 선택해야 합니다. . .");
         System.out.println();
         System.out.println("선물을 선택하십시오\n");
-        System.out.println("1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.");
-        System.out.println("2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.");
-        System.out.println("3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.\n");
+        Story th1 = new Story();
+        th1.msg_num=1;
+        th1.start();
+        try {
+            th1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("(선물의 효과는 영구적이고 버릴 수 없습니다.)");
 
     }
     public void story3(My my,int x){
+        Story th1 = new Story();
         String gift=" ";
         if(x==1){
             gift="아드레날린";//에너지 최대치 4
@@ -47,8 +86,14 @@ public class Story {
         System.out.printf("다윗은 고민끝에 %s을(를) 선택하였습니다. 힘든 고민이었지만 \'골리앗\'을 상대하려면 이 선택이 최선이었습니다.", gift);
         System.out.println("다윗은 해가 저무는 땅을 향해 다시 한번 발걸음을 옮겨갔습니다.");
         System.out.println();
-        System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
-        System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+        msg_num=0;
+        th1.start();//System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
+        try {
+            th1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
     }
     public void story4(My my){
         System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
@@ -67,8 +112,15 @@ public class Story {
         System.out.printf("다윗은 %s로 했습니다. 시간이 없기에 다윗이 할 수 있는 최선의 선택이었습니다.", select);
         System.out.println("이제 싸울 시간입니다.");
         System.out.println();
-        System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
-        System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+        Story th1 = new Story();
+        msg_num=0;
+        th1.start();//System.out.println("그 신비한 땅 엘라에서 오래된 전투가 곧 펼쳐질 예정입니다. . . . .");
+        try {
+            th1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
     }
 
     public void ending(){

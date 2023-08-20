@@ -1,11 +1,14 @@
 import java.util.Scanner;
+import javax.sound.sampled.Clip;
+public class Dungeon1 extends Thread{
 
-public class Dungeon1 {
-    public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Shop shop) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
+
+    public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Shop shop, Bgm bgm) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
 
         int select=0;
         int tutorial_token=0;
         Scanner scan= new Scanner(System.in);
+        bgm.bgm(1);
 
         if (x == 1) {
             my.fhp=80;
@@ -332,10 +335,11 @@ public class Dungeon1 {
                 my.card_16_atk=0;
                 if (x == 0) {
                     System.out.println("축하합니다!");
-                    System.out.println("허수아비를 쓰려뜨렸습니다!");
+                    System.out.println("토끼를 쓰려뜨렸습니다!");
                     System.out.println("이제 당신은 적과 맞서 싸울 준비가 되었습니다!\n\n");
                 }
                 if(x!=0&&x!=7) {
+                    bgm.stopBgm();
                     System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                             " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                             "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
@@ -364,13 +368,14 @@ public class Dungeon1 {
                     }
                     //상점으로 갈래? 싸우러갈래?
                     if (x != 4 && x != 6) {//보스전, 골리앗 전 때 상점 안나옴
-                        shop.shop_choice(reward1, my);
+                        shop.shop_choice(reward1, my, bgm);
                     }
                 }
                 //상점 카드 버리기, 카드 구매, hp회복 기능
                 //이벤트 확률적으로 출현
             }
             if(my.hp<0){//내가 죽엇으면
+                bgm.stopBgm();
                 my.card_16_atk=0;
                 System.out.println("\n\n" +
                         " ██████╗  █████╗ ███╗   ███╗███████╗ ██████╗ ██╗   ██╗███████╗██████╗ \n" +
