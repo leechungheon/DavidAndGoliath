@@ -1,6 +1,7 @@
 import java.util.Scanner;
+
 import javax.sound.sampled.Clip;
-public class Dungeon1 extends Thread{
+public class Dungeon1{
 
 
     public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Shop shop, Bgm bgm) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
@@ -8,7 +9,6 @@ public class Dungeon1 extends Thread{
         int select=0;
         int tutorial_token=0;
         Scanner scan= new Scanner(System.in);
-        bgm.bgm(1);
 
         if (x == 1) {
             my.fhp=80;
@@ -307,7 +307,7 @@ public class Dungeon1 extends Thread{
                     System.out.print(my.mydeck[i]);
                 }*/
                 select = scan.nextInt();
-                my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4);
+                my.cardchoice(select,x, enemy,enemy2,enemy3,enemy4,bgm);
 
             } while (select != 0&&enemy.hp>0||select != 0&&enemy2.hp>0||select != 0&&enemy3.hp>0||select != 0&&enemy4.hp>0);
             //적 공격후 상황 출력
@@ -330,6 +330,7 @@ public class Dungeon1 extends Thread{
                     enemy4.atk_save = enemy4.enemypower();
                 }
                 System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
+                bgm.bgm(8);
                 my.card_16_atk=savehp - my.hp;
             } else{//적이 죽었으면
                 my.card_16_atk=0;
@@ -339,7 +340,7 @@ public class Dungeon1 extends Thread{
                     System.out.println("이제 당신은 적과 맞서 싸울 준비가 되었습니다!\n\n");
                 }
                 if(x!=0&&x!=7) {
-                    bgm.stopBgm();
+                    bgm.bgm(7);
                     System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                             " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                             "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
@@ -375,7 +376,7 @@ public class Dungeon1 extends Thread{
                 //이벤트 확률적으로 출현
             }
             if(my.hp<0){//내가 죽엇으면
-                bgm.stopBgm();
+                bgm.bgm(6);
                 my.card_16_atk=0;
                 System.out.println("\n\n" +
                         " ██████╗  █████╗ ███╗   ███╗███████╗ ██████╗ ██╗   ██╗███████╗██████╗ \n" +
@@ -387,7 +388,6 @@ public class Dungeon1 extends Thread{
                         "                                                                      \n");
             }
         }while(my.hp>0&&enemy.hp>0||my.hp>0&&enemy2.hp>0||my.hp>0&&enemy3.hp>0||my.hp>0&&enemy4.hp>0);//스테이지 1반복 둘 다 살았다면,
-
 
     }
 }

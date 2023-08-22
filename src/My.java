@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class My {
+public class My extends Thread{
     int fhp;//풀HP
     int hp;//현재HP
     int gold;
@@ -15,6 +15,7 @@ public class My {
     int[] mycard=new int[101];//내 소유 전체 카드
     int[] mycard_y=new int[101];//빈공간 제외한 내 카드
     int[] mydeck=new int[6];//5장 뽑음
+
 
     public void myhp() {
         System.out.printf("(%d+%d/%d)",fhp,defend, hp);
@@ -155,7 +156,7 @@ public class My {
             }
         }
     }
-    public void cardchoice(int select,int x,Enemy enemy,Enemy enemy2,Enemy enemy3,Enemy enemy4){
+    public void cardchoice(int select,int x,Enemy enemy,Enemy enemy2,Enemy enemy3,Enemy enemy4, Bgm bgm){
         switch(select){
             case 0: //turn over
                 System.out.println("\t\t\t\t\t\t\t\t\uD83D\uDD14턴 종료\uD83D\uDD14");
@@ -271,7 +272,7 @@ public class My {
                         energy--;
                         System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n",enemy.enemy_name[0],atk);
                     }
-                    /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==1||mydeck[2]==1||mydeck[3]==1||mydeck[4]==1||mydeck[0]==1){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -300,6 +301,7 @@ public class My {
                     defend+=8;
                     energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『+8 방어력을 얻었습니다.』\n\n\n\n");
+                    bgm.bgm(4);
                 }else if(mydeck[1]==2||mydeck[2]==2||mydeck[3]==2||mydeck[4]==2||mydeck[0]==2){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -338,6 +340,7 @@ public class My {
                     enemy4.hp -= atk;
                     energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", atk);
+                    bgm.bgm(3);
                 }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -378,6 +381,7 @@ public class My {
 
                     energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 취약+1 과 %d 데미지를 입혔습니다.』\n\n\n\n", atk);
+                    bgm.bgm(3);
                 }else if(mydeck[1]==4||mydeck[2]==4||mydeck[3]==4||mydeck[4]==4||mydeck[0]==4){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -499,6 +503,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『피해를 %d입고 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", 2, atk);
 
                     }
+                    bgm.bgm(3);
 
                 }else if(mydeck[1]==5||mydeck[2]==5||mydeck[3]==5||mydeck[4]==5||mydeck[0]==5){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
@@ -620,6 +625,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『%d 데미지를 입혔습니다.』\n\n\n\n",atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==6||mydeck[2]==6||mydeck[3]==6||mydeck[4]==6||mydeck[0]==6){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -747,6 +753,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n",atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==7||mydeck[2]==7||mydeck[3]==7||mydeck[4]==7||mydeck[0]==7){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -778,6 +785,7 @@ public class My {
                     enemy3.weak +=1;
                     enemy4.weak +=1;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 약화+1 을 부여했습니다.』\n\n\n\n");
+                    bgm.bgm(4);
                 }else if(mydeck[1]==3||mydeck[2]==3||mydeck[3]==3||mydeck[4]==3||mydeck[0]==3){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -902,6 +910,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『취약+2와 %d 데미지를 입혔습니다.』\n\n\n\n",atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==9||mydeck[2]==9||mydeck[3]==9||mydeck[4]==9||mydeck[0]==9){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -950,6 +959,7 @@ public class My {
                     enemy4.hp -= atk;
                     energy-=3;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 %d 데미지를 입혔습니다.』\n\n\n\n", atk);
+                    bgm.bgm(3);
                 }else if(mydeck[1]==10||mydeck[2]==10||mydeck[3]==10||mydeck[4]==10||mydeck[0]==10){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -1107,6 +1117,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n",enemy.enemy_name[0],atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==11||mydeck[2]==11||mydeck[3]==11||mydeck[4]==11||mydeck[0]==11){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -1232,6 +1243,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 입혔습니다.』\n\n\n\n",enemy.enemy_name[0],atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==12||mydeck[2]==12||mydeck[3]==12||mydeck[4]==12||mydeck[0]==12){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -1259,6 +1271,7 @@ public class My {
                     }
                     energy--;
                     System.out.printf("\n\t\t\t\t\t\t 『+%d 방어력을 얻었습니다.』\n\n\n\n", defend);
+                    bgm.bgm(4);
                     defend+=defend;
                 }else if(mydeck[1]==13||mydeck[2]==13||mydeck[3]==13|mydeck[4]==13||mydeck[0]==13){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
@@ -1292,6 +1305,7 @@ public class My {
                     power+=3;
                     energy-=2;
                     System.out.printf("\n\t\t\t\t\t\t 『모든 적에게 약화+3 와 취약+3 을 부여했습니다.』\n\n\n\n");
+                    bgm.bgm(4);
                 }else if(mydeck[1]==14||mydeck[2]==14||mydeck[3]==14||mydeck[4]==14||mydeck[0]==14){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -1319,6 +1333,7 @@ public class My {
                     energy--;
 
                     System.out.printf("\n\t\t\t\t\t\t 『+10 방어력을 얻었습니다.』\n\n\n\n");
+                    bgm.bgm(4);
                 }else if(mydeck[1]==15||mydeck[2]==15||mydeck[3]==15||mydeck[4]==15||mydeck[0]==15){
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");
@@ -1440,6 +1455,7 @@ public class My {
                         System.out.printf("\n\t\t\t\t\t\t 『%s에게 %d 데미지를 갚아줬습니다.』\n\n\n\n",enemy.enemy_name[0],atk);
                     }
                     /////
+                    bgm.bgm(3);
                 }else if(mydeck[1]==16||mydeck[2]==16||mydeck[3]==16||mydeck[4]==16||mydeck[0]==16){//패에 카드를 가지고 있지만, 코스가 부족할 때
                     System.out.printf("코스트가 부족합니다. 남은 코스트 : %d\n",energy);
                     System.out.println("\n\n\n\n");

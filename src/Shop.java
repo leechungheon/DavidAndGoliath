@@ -109,8 +109,9 @@ public class Shop extends Reward_1{
 
     public void shop(Reward_1 reward1, My my, Bgm bgm){
         int select1;
+        int bgm_time=0;
         do {
-            bgm.bgm(2);
+
             System.out.printf("\n" +
                     "\t\t\t\t\t\t╔═╗╦ ╦╔═╗╔═╗\n" +
                     "\t\t\t\t\t\t╚═╗╠═╣║ ║╠═╝\n" +
@@ -140,6 +141,7 @@ public class Shop extends Reward_1{
                     }
                     my.gold-=gold1;
                     System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card1);
+                    bgm.bgm(5);
                 }else if(my.gold>=gold1&&my.mycard[card1]==card1){
                     System.out.println("이미 구매한 카드입니다.\n");
                 }
@@ -162,6 +164,7 @@ public class Shop extends Reward_1{
                     }
                     my.gold-=gold2;
                     System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card2);
+                    bgm.bgm(5);
                 }else if(my.gold>=gold2&&my.mycard[card2]==card2) {
                     System.out.println("이미 구매한 카드입니다.\n");
                 } else{
@@ -183,6 +186,7 @@ public class Shop extends Reward_1{
                     }
                     my.gold-=gold3;
                     System.out.printf("%d번 카드가 내 카드에 추가되었습니다.\n", card3);
+                    bgm.bgm(5);
                 }else if(my.gold>=gold3&&my.mycard[card3]==card3){
                     System.out.println("이미 구매한 카드입니다.\n");
                 }
@@ -195,8 +199,10 @@ public class Shop extends Reward_1{
                     if(my.hp<=70){
                         my.hp += 10;
                         System.out.println("체력이 10 회복되었습니다.\n");
+                        bgm.bgm(5);
                     }else{
                         System.out.printf("체력이 %d 회복되었습니다.\n\n", my.fhp-my.hp);
+                        bgm.bgm(5);
                         my.hp=80;
                     }
                     my.gold -= 30;
@@ -217,12 +223,14 @@ public class Shop extends Reward_1{
                 System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t0을 눌러 뒤로가기");
                 int select3;
                 select3= scan.nextInt();
-                if(select3==0) {
+                    if(select3==0) {
                     //뒤로가기
-                }else {
+                     }else {
                     my.gold-=70;
                     my.mycard_minus(select3, reward1);
-                }}else if(my.gold<70){
+                        bgm.bgm(5);
+                     }
+                }else if(my.gold<70){
                     System.out.println("골드가 부족합니다.\n");
                 }
             } else if (select1 == 6) {
@@ -254,7 +262,7 @@ public class Shop extends Reward_1{
                 System.out.println("잘못 입력된 값입니다.");
             }
         }while(select1!=0);
-            bgm.stopBgm();
+
     }
 
 }

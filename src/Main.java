@@ -44,7 +44,9 @@ public class Main {
                 if(select==1||select==2) {
                     story.story();
                     int x = 1;//enemy number
+
                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//40
+
                     if (my.hp > 0) {
                         x = 2;
                         dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//30,70

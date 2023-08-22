@@ -21,6 +21,16 @@ public class Story extends Thread{
                     e.printStackTrace();
                 }
             }
+        }else if(msg_num==2){
+            String sentence = "1.황금갑옷 : 2턴 동안 방어도가 999가 됩니다.\n2.빨간포션 : 잃은 체력을 모두 회복합니다.\n";
+            for (char c : sentence.toCharArray()) {
+                System.out.print(c);
+                try {
+                    Thread.sleep(100); // 글자 출력 후 잠시 멈춤
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
 
@@ -102,8 +112,14 @@ public class Story extends Thread{
         System.out.println("다윗은 골리앗이 오기 전에 빨리 선택을 하려고 합니다. 하지만, 저 멀리 있던 \'골리앗\'은 어느 새 코 앞까지 다가오고 말았습니다.");
         System.out.println("다윗은 이제 선택해야 합니다.");
         System.out.println();
-        System.out.println("1.황금갑옷 : 2턴 동안 방어도가 999가 됩니다.\n");
-        System.out.printf("2.빨간포션 : 잃은 체력을 모두 회복합니다.(현재 체력(%d/%d))\n", my.fhp, my.hp);
+        Story th1 = new Story();
+        th1.msg_num=2;
+        th1.start();
+        try {
+            th1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public void story5(int x, My my){
         String select="";
