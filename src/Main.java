@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main{
     public static void main(String[] args){
-        Card_list cardlist=new Card_list();
         My my=new My();
         Enemy enemy=new Enemy();
         Enemy enemy2=new Enemy();
@@ -30,6 +29,7 @@ public class Main {
         System.out.println("4.종 료");
         int select;
         int story_select;
+        String select_string;
         Scanner scan= new Scanner(System.in);
         select=scan.nextInt();
 
@@ -43,8 +43,16 @@ public class Main {
                 }
                 if(select==1||select==2) {
                     story.story();
-                    int x = 1;//enemy number
+                    do {
+                        System.out.println("아무 키나 눌러 시작");
+                        select_string = scan.next();
+                        if (select_string != "0") {
 
+                        }else{
+
+                        }
+                    }while(select!=1&&select!=2);
+                    int x = 1;//enemy number
                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//40
 
                     if (my.hp > 0) {
@@ -58,8 +66,21 @@ public class Main {
                                 dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//보스전 100(25~35)
                                 if(my.hp>0) {
                                     story.story2();
+                                    //countdown thread
                                     story_select = scan.nextInt();
+//                                    th1.interrupt();
+//                                    try {
+//                                        th1.join(); // 입력 후에 스레드 종료 기다림
+//                                    } catch (InterruptedException e) {
+//                                        // 예외 처리
+//                                    }
+//                                    if (th1.isSuccess()) {
+//                                        story.story3(my,story_select);
+//                                    } else {
+//                                        story.story3(my,0);
+//                                    }
                                     story.story3(my,story_select);
+
                                     if(story_select==1){//아드레날린:영구적으로 다윗의 에너지가 4가 됩니다.
                                         gift.gift(my,1);
                                     }else if(story_select==2){

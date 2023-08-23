@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Story extends Thread{
     int msg_num;
     public void run() {//run 메소드
@@ -12,7 +14,7 @@ public class Story extends Thread{
                 }
             }
         }else if(msg_num==1){
-            String sentence = "1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.\n2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.\n3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.\n";
+            String sentence = "선물을 선택하십시오. 제한시간 내에 선택하지 못하면 선물은 들고 갈 수 없습니다.\n1.아드레날린 : 영구적으로 다윗의 에너지가 4가 됩니다.\n2.청동 갑옷 : 턴이 시작할 때마다 다윗의 방어도가 10 증가합니다.\n3.붉은 스카프 : 내 턴이 시작될때 HP를 5씩 회복합니다.\n";
             for (char c : sentence.toCharArray()) {
                 System.out.print(c);
                 try {
@@ -56,9 +58,10 @@ public class Story extends Thread{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n\n\n");
+        System.out.println("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n");
     }
     public void story2(){
+        String select_string;
         System.out.println("\n\n\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
         System.out.println("\'거인 골리앗\'의 애완용인 \'모르고스\'를 물리치고 한 차례 전투가 끝이 났습니다.");
         System.out.println("자신의 애완용을 죽인 다윗에게 분노한 \'골리앗\'은 \'블레셋\'족들과 함께 다윗을 직접 처리하러 나섭니다.");
@@ -67,8 +70,15 @@ public class Story extends Thread{
         System.out.println("그때 다윗의 전투에 감동받은 \'이스라엘 사람들\'이 다윗에게 서둘러 다가옵니다.");
         System.out.println("\'이스라엘 사람들\'은 다윗에게 각자 들고 온 신비로운 선물을 건넸습니다.");
         System.out.println("하지만 다윗은 모두 들고 갈 수 없어 하나의 선물만을 선택해야 합니다. . .");
+        System.out.println("[아무 키나 눌러 계속하기]");
+        Scanner scan= new Scanner(System.in);
+        select_string = scan.next();
+        if (select_string != "0") {
+
+        }else{
+
+        }
         System.out.println();
-        System.out.println("선물을 선택하십시오\n");
         Story th1 = new Story();
         th1.msg_num=1;
         th1.start();
@@ -86,14 +96,18 @@ public class Story extends Thread{
         if(x==1){
             gift="아드레날린";//에너지 최대치 4
             my.gift1=1;
+            System.out.printf("다윗은 고민끝에 %s을(를) 선택하였습니다. 힘든 고민이었지만 \'골리앗\'을 상대하려면 이 선택이 최선이었습니다.", gift);
         }else if(x==2){
             gift="청동 갑옷";//시작 방어력 10 받고 시작
             my.gift2=2;
+            System.out.printf("다윗은 고민끝에 %s을(를) 선택하였습니다. 힘든 고민이었지만 \'골리앗\'을 상대하려면 이 선택이 최선이었습니다.", gift);
         }else if(x==3){
             gift="붉은 스카프";//턴 끝날때마다 체력 5회복
             my.gift3=3;
+            System.out.printf("다윗은 고민끝에 %s을(를) 선택하였습니다. 힘든 고민이었지만 \'골리앗\'을 상대하려면 이 선택이 최선이었습니다.", gift);
+        }else if(x==0){
+            System.out.printf("결국 고민하다가 적들은 바로 앞까지 도달했고 어쩔 수 없이 다윗은 빈 손으로 떠납니다.");
         }
-        System.out.printf("다윗은 고민끝에 %s을(를) 선택하였습니다. 힘든 고민이었지만 \'골리앗\'을 상대하려면 이 선택이 최선이었습니다.", gift);
         System.out.println("다윗은 해가 저무는 땅을 향해 다시 한번 발걸음을 옮겨갔습니다.");
         System.out.println();
         msg_num=0;

@@ -214,18 +214,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
-
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;
@@ -442,16 +443,19 @@ public class My extends Thread{
                           int choice=0;
                           int e_count;
                           while(true) {
-                              System.out.println("몇 번 적을 공격하시겠습니까?");
-                              Scanner scan = new Scanner(System.in);
-                              e_count = scan.nextInt();
+                              if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                  System.out.println("몇 번 적을 공격하시겠습니까?");
+                                  Scanner scan = new Scanner(System.in);
+                                  e_count = scan.nextInt();
+                              }else{
+                                  e_count=1;
+                              }
                               if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                   System.out.println("잘못 입력된 값입니다.");
                               } else {
                                   break;
                               }
                           }
-
                           for(int i=0; i<4; i++){
                               if(e_num[i]!=0){
                                   choice++;
@@ -568,16 +572,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;
@@ -692,16 +699,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;
@@ -852,16 +862,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;
@@ -1024,16 +1037,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;
@@ -1187,9 +1203,13 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
@@ -1396,18 +1416,19 @@ public class My extends Thread{
                             int choice=0;
                             int e_count;
                             while(true) {
-                                System.out.println("몇 번 적을 공격하시겠습니까?");
-                                Scanner scan = new Scanner(System.in);
-                                e_count = scan.nextInt();
+                                if(e_num[0]+e_num[1]+e_num[2]+e_num[3]>=2) {
+                                    System.out.println("몇 번 적을 공격하시겠습니까?");
+                                    Scanner scan = new Scanner(System.in);
+                                    e_count = scan.nextInt();
+                                }else{
+                                    e_count=1;
+                                }
                                 if (e_num[0] + e_num[1] + e_num[2] + e_num[3] < e_count) {
                                     System.out.println("잘못 입력된 값입니다.");
                                 } else {
                                     break;
                                 }
                             }
-
-
-
                             for(int i=0; i<4; i++){
                                 if(e_num[i]!=0){
                                     choice++;

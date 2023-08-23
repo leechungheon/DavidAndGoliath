@@ -152,6 +152,7 @@ public class Dungeon1{
         //출력
         do {
             if(x==0&&tutorial_token==0){
+                System.out.println("                      왼쪽이 당신, 오른쪽이 당신의 적 입니다.");
                 System.out.println("                    카드 번호를 입력해 공격이나 방어를 하십시오");
                 System.out.println("         카드이름 우측의 숫자는 카드를 사용하는 데 드는 에너지를 의미합니다.");
                 System.out.println("                    적 우측의 \uD83D\uDD2A은 적의 공격력을 의미합니다.");
@@ -226,7 +227,7 @@ public class Dungeon1{
                     }
                 }else if(x==7){
                     if(enemy.hp>0){
-                        System.out.printf("goliath (\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
+                        System.out.printf("\uD83D\uDE08 (\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);
                     }
                 }
                 System.out.println();
@@ -335,6 +336,7 @@ public class Dungeon1{
             } else{//적이 죽었으면
                 my.card_16_atk=0;
                 if (x == 0) {
+                    bgm.bgm(7);
                     System.out.println("축하합니다!");
                     System.out.println("토끼를 쓰려뜨렸습니다!");
                     System.out.println("이제 당신은 적과 맞서 싸울 준비가 되었습니다!\n\n");
