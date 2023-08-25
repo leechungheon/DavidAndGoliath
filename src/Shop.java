@@ -111,7 +111,10 @@ public class Shop extends Reward_1{
         int select1;
         int bgm_time=0;
         do {
-
+            if(bgm_time==0) {
+                bgm.bgm(2);
+                bgm_time++;
+            }
             System.out.printf("\n" +
                     "\t\t\t\t\t\t╔═╗╦ ╦╔═╗╔═╗\n" +
                     "\t\t\t\t\t\t╚═╗╠═╣║ ║╠═╝\n" +
@@ -262,7 +265,7 @@ public class Shop extends Reward_1{
                 System.out.println("잘못 입력된 값입니다.");
             }
         }while(select1!=0);
-
+        bgm.stopBgm();
     }
 
 }

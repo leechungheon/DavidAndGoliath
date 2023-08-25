@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main{
     public static void main(String[] args){
         My my=new My();
@@ -13,8 +12,13 @@ public class Main{
         Story story=new Story();
         Gift gift=new Gift();
         Bgm bgm = new Bgm();
+        int bgm_time=0;
 
        while(true) {
+           if(bgm_time==0) {
+               bgm.bgm(2);
+               bgm_time++;
+           }
             System.out.println(
                     "██████╗  █████╗ ██╗   ██╗██╗██████╗      █████╗ ███╗   ██╗██████╗      ██████╗  ██████╗ ██╗     ██╗ █████╗ ████████╗██╗  ██╗\n" +
                     "██╔══██╗██╔══██╗██║   ██║██║██╔══██╗    ██╔══██╗████╗  ██║██╔══██╗    ██╔════╝ ██╔═══██╗██║     ██║██╔══██╗╚══██╔══╝██║  ██║\n" +
@@ -52,48 +56,35 @@ public class Main{
 
                         }
                     }while(select!=1&&select!=2);
+                    bgm.stopBgm();
+                    bgm.bgm(1);
                     int x = 1;//enemy number
                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//40
-
                     if (my.hp > 0) {
+                        bgm.bgm(1);
                         x = 2;
                         dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//30,70
                         if (my.hp > 0) {
+                            bgm.bgm(1);
                             x = 3;
                             dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop,bgm);//40 80
                             if (my.hp > 0) {
+                                bgm.bgm(9);
                                 x = 4;
                                 dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//보스전 100(25~35)
                                 if(my.hp>0) {
+                                    bgm.bgm(10);
                                     story.story2();
-                                    //countdown thread
-                                    story_select = scan.nextInt();
-//                                    th1.interrupt();
-//                                    try {
-//                                        th1.join(); // 입력 후에 스레드 종료 기다림
-//                                    } catch (InterruptedException e) {
-//                                        // 예외 처리
-//                                    }
-//                                    if (th1.isSuccess()) {
-//                                        story.story3(my,story_select);
-//                                    } else {
-//                                        story.story3(my,0);
-//                                    }
-                                    story.story3(my,story_select);
-
-                                    if(story_select==1){//아드레날린:영구적으로 다윗의 에너지가 4가 됩니다.
-                                        gift.gift(my,1);
-                                    }else if(story_select==2){
-                                        gift.gift(my,2);
-                                    }else if(story_select==3){
-                                        gift.gift(my,3);
-                                    }
+                                    story.story3( my);
+                                    bgm.bgm(11);
                                     x=5;
                                     dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//2-1 3마리 30.30.30.
                                     if(my.hp>0){
+                                        bgm.bgm(11);
                                         x=6;
                                         dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//2-2 3마리 40 40 40
                                         if(my.hp>0){
+                                            bgm.bgm(10);
                                             story.story4(my);
                                             story_select = scan.nextInt();
                                             while(true) {
@@ -106,10 +97,25 @@ public class Main{
                                                 }
                                             }
                                             story.story5(story_select,my);
+                                            bgm.bgm(12);
                                             x=7;
                                             dungeon1.dunGeon1(x, my, enemy, enemy2, enemy3, enemy4, reward_1, shop, bgm);//골리앗
                                             if(my.hp>0){
+                                                bgm.bgm(13);
                                                 story.ending();
+                                                int ask_countinue;
+                                                System.out.println("1. 메인화면으로 돌아가기");
+                                                System.out.println("2. 종 료");
+                                                ask_countinue=scan.nextInt();
+                                                do {
+                                                    if (ask_countinue == 1) {
+
+                                                    } else if (ask_countinue == 2) {
+                                                        return;
+                                                    } else {
+                                                        System.out.println("잘못 입력된 값입니다.");
+                                                    }
+                                                }while(ask_countinue!=1&&ask_countinue!=2);
                                             }
                                         }
                                     }

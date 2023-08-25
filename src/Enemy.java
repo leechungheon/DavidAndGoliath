@@ -7,12 +7,17 @@ public class Enemy {
     String [] enemy_name=new String[4];
 
 
-    public int enemypower() {//적 다음턴 공격력 랜덤 출력
-         atk = (int) (Math.random() * 11) + 10;
-        return atk;
+    public int enemypower(My my) {//적 다음턴 공격력 랜덤 출력
+        if(my.goliath==1){
+            atk = (int) (Math.random() * 11) + 30;
+            return atk;
+        }else {
+            atk = (int) (Math.random() * 11) + 10;
+            return atk;
+        }
     }
 
-    int atk_save = enemypower();
+    int atk_save = enemypower(new My());
     public void enemyhp(){//적 체력바 출력
         for(int i=0; i<15-15*hp/fhp; i++){
             System.out.print('□');

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 import javax.sound.sampled.Clip;
-public class Dungeon1{
+public class Dungeon1 extends Story{
 
 
     public void dunGeon1(int x, My my, Enemy enemy, Enemy enemy2, Enemy enemy3, Enemy enemy4,Reward_1 reward1, Shop shop, Bgm bgm) {//나중에 int형 반환으로 바꿔서 던전 2입장여부 조사
@@ -92,14 +92,12 @@ public class Dungeon1{
             enemy.enemy_name[0]="허수아비";
             my.mycard();//초기카드 선언
         }else if(x==5){
-            my.fhp=80;
-            my.hp=80;
             enemy.fhp=30;
             enemy.hp=30;
             enemy4.fhp = 0;
             enemy4.hp = 0;
-            enemy3.fhp = 30;
-            enemy3.hp = 30;
+            enemy3.fhp = 35;
+            enemy3.hp = 35;
             enemy2.fhp = 30;
             enemy2.hp = 30;
             my.power=0;
@@ -110,8 +108,8 @@ public class Dungeon1{
             //my.mycard();//초기카드 선언
         }
         else if(x==6){
-            enemy.fhp=20;
-            enemy.hp=20;
+            enemy.fhp=30;
+            enemy.hp=30;
             enemy4.fhp = 0;
             enemy4.hp = 0;
             enemy3.fhp = 40;
@@ -136,6 +134,7 @@ public class Dungeon1{
             my.power=0;
             enemy.weak=0;
             enemy.enemy_name[0]="골리앗";
+            my.goliath=1;
             //my.mycard();//초기카드 선언
             System.out.println("\n" +
                     "   ▄██████▄   ▄██████▄   ▄█        ▄█     ▄████████     ███        ▄█    █▄    \n" +
@@ -171,7 +170,11 @@ public class Dungeon1{
                 my.defend=0;
             }
             if(my.gift3==3){
-                my.hp+=5;
+                if(my.hp<=75) {
+                    my.hp += 5;
+                }else{
+                    my.hp=80;
+                }
             }else{
             }
             //2번째 선물 유무
@@ -195,9 +198,9 @@ public class Dungeon1{
                     System.out.printf("\uD83E\uDDDB(\uD83D\uDD2A: %d)", enemy2.atk_save);}
                 }else if(x==3){//진행중
                     if(enemy2.hp>0){
-                        System.out.printf("\uD83D\uDC7E(\uD83D\uDD2A: %d)    \t\t ", enemy.atk_save);}
+                        System.out.printf("\uD83D\uDC7E(\uD83D\uDD2A: %d)    \t\t ", enemy2.atk_save);}
                     if(enemy3.hp>0){
-                        System.out.printf("\uD83D\uDC7D(\uD83D\uDD2A: %d)", enemy2.atk_save);}
+                        System.out.printf("\uD83D\uDC7D(\uD83D\uDD2A: %d)", enemy3.atk_save);}
                 }
                 else if(x==4){
                     if(enemy4.hp>0){
@@ -316,19 +319,19 @@ public class Dungeon1{
             if(enemy.hp>0||enemy2.hp>0||enemy3.hp>0||enemy4.hp>0) {
                 if (enemy.hp > 0) {//적이 살앗으면 나에게 공격
                     enemy.enemyatk(my);
-                    enemy.atk_save = enemy.enemypower();
+                    enemy.atk_save = enemy.enemypower( my);
                 }
                 if (enemy2.hp > 0) {
                     enemy2.enemyatk(my);
-                    enemy2.atk_save = enemy2.enemypower();
+                    enemy2.atk_save = enemy2.enemypower(my);
                 }
                 if (enemy3.hp > 0) {
                     enemy3.enemyatk(my);
-                    enemy3.atk_save = enemy3.enemypower();
+                    enemy3.atk_save = enemy3.enemypower(my);
                 }
                 if (enemy4.hp > 0) {
                     enemy4.enemyatk(my);
-                    enemy4.atk_save = enemy4.enemypower();
+                    enemy4.atk_save = enemy4.enemypower(my);
                 }
                 System.out.printf("\n\t\t\t\t\t  \uD83E\uDE78적에게 %d 데미지를 받았습니다.\uD83E\uDE78", savehp - my.hp);
                 bgm.bgm(8);
@@ -342,7 +345,7 @@ public class Dungeon1{
                     System.out.println("이제 당신은 적과 맞서 싸울 준비가 되었습니다!\n\n");
                 }
                 if(x!=0&&x!=7) {
-                    bgm.bgm(7);
+                    bgm.stopBgm();
                     System.out.println("\n\n\n\n\n\n\n\n\n\n" +
                             " ██████╗██╗     ███████╗ █████╗ ██████╗ ██╗██╗\n" +
                             "██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗██║██║\n" +
@@ -351,6 +354,7 @@ public class Dungeon1{
                             "╚██████╗███████╗███████╗██║  ██║██║  ██║██╗██╗\n" +
                             " ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝\n" +
                             "                                              \n");
+                    bgm.bgm(7);
                     //보상얻기
 
                     reward1.reward(1, my);//골드받고 카드 3중 1 선택// 정수값 1 받으면 골드 및 선택 문구 출력
@@ -378,8 +382,8 @@ public class Dungeon1{
                 //이벤트 확률적으로 출현
             }
             if(my.hp<0){//내가 죽엇으면
-                bgm.bgm(6);
                 my.card_16_atk=0;
+                bgm.stopBgm();
                 System.out.println("\n\n" +
                         " ██████╗  █████╗ ███╗   ███╗███████╗ ██████╗ ██╗   ██╗███████╗██████╗ \n" +
                         "██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" +
@@ -388,8 +392,9 @@ public class Dungeon1{
                         "╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗╚██████╔╝ ╚████╔╝ ███████╗██║  ██║\n" +
                         " ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝\n" +
                         "                                                                      \n");
+                bgm.bgm(6);
             }
-        }while(my.hp>0&&enemy.hp>0||my.hp>0&&enemy2.hp>0||my.hp>0&&enemy3.hp>0||my.hp>0&&enemy4.hp>0);//스테이지 1반복 둘 다 살았다면,
 
+        }while(my.hp>0&&enemy.hp>0||my.hp>0&&enemy2.hp>0||my.hp>0&&enemy3.hp>0||my.hp>0&&enemy4.hp>0);//스테이지 1반복 둘 다 살았다면,
     }
 }

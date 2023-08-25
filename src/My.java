@@ -11,6 +11,7 @@ public class My extends Thread{
     int gift2;
     int gift3;
     int gift2_1=3;
+    int goliath;
 
     int[] mycard=new int[101];//내 소유 전체 카드
     int[] mycard_y=new int[101];//빈공간 제외한 내 카드
